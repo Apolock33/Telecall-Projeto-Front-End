@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "Q2kGpud6WqMEcY9GjmcjN6m7VY7/3O0CvsiIjgQOkrBH/dP4/gJWhDB9FQiqUJwRy+F/k6FRVW7pmy0bmSvfew==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\carlos.gomes\\Desktop\\Estudo\\Projetos\\UNISUAM\\Telecall-Projeto-Front-End\\Back-End\\ProjetoModuloFrontEnd-BackEnd\\ProjetoModuloFrontEnd-BackEnd\\ProjetoModuloFrontEnd-BackEnd.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\carlos.gomes\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
+    "C:\\Users\\carlos.gomes\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\carlos.gomes\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\carlos.gomes\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\carlos.gomes\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\carlos.gomes\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\carlos.gomes\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
