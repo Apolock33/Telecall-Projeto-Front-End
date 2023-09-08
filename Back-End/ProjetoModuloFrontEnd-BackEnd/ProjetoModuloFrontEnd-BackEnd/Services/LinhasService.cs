@@ -1,6 +1,8 @@
-﻿namespace ProjetoModuloFrontEnd_BackEnd.Services
+﻿using ProjetoModuloFrontEnd_BackEnd.Services.Interfaces;
+
+namespace ProjetoModuloFrontEnd_BackEnd.Services
 {
-    public class LinhasService
+    public class LinhasService:ILinhasService
     {
     }
 }

@@ -21,8 +21,8 @@ namespace ProjetoModuloFrontEnd_BackEnd.Models
         [StringLength(20, ErrorMessage = "O número máximo de caracteres foi atingido")]
         public string? Phone { get; set; }
 
-        public Enderecos Endereco { get; set; }
+        public Enderecos? Endereco { get; set; }
 
-        public IEnumerable<Contas> Contas { get; set; }
+        public IEnumerable<Contas>? Contas { get; set; }
     }
 }

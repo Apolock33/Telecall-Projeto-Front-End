@@ -19,21 +19,23 @@ namespace ProjetoModuloFrontEnd_BackEnd.Repositories
             return Task.Run(() => _db.Set<T>().AsEnumerable());
         }
 
-        public async Task<T> GetById(Expression<Func<T, bool>> entity)
+        public async Task<T> GetBy(Expression<Func<T, bool>> entity)
         {
             return await Task.Run(() => _db.Set<T>().Where(entity).FirstOrDefaultAsync());
         }
 
-        public async Task<int> Post(T entity)
+        public async Task<T> Post(T entity)
         {
             _db.Set<T>().Add(entity);
-            return await _db.SaveChangesAsync();
+            await _db.SaveChangesAsync();
+            return entity;
         }
 
-        public async Task<int> Put(T entity)
+        public async Task<T> Put(T entity)
         {
             _db.Set<T>().Update(entity);
-            return await _db.SaveChangesAsync();
+            await _db.SaveChangesAsync();
+            return entity;
         }
         public async Task<int> Delete(T entity)
         {

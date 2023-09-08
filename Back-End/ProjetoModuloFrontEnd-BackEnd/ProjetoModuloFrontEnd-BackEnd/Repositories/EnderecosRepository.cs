@@ -4,9 +4,9 @@ using ProjetoModuloFrontEnd_BackEnd.Repositories.Interfaces;
 
 namespace ProjetoModuloFrontEnd_BackEnd.Repositories
 {
-    public class EnderecosReposiory : Repository<Enderecos>, IEnderecosRepository
+    public class EnderecosRepository : Repository<Enderecos>, IEnderecosRepository
     {
-        public EnderecosReposiory(AppDbContext db) : base(db)
+        public EnderecosRepository(AppDbContext db) : base(db)
         {
         }
     }

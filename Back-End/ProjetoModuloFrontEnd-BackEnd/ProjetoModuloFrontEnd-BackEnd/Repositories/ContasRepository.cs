@@ -4,7 +4,7 @@ using ProjetoModuloFrontEnd_BackEnd.Repositories.Interfaces;
 
 namespace ProjetoModuloFrontEnd_BackEnd.Repositories
 {
-    public class CosntasRepository : Repository<Contas>, IContasRepository
+    public class ContasRepository : Repository<Contas>, IContasRepository
     {
         public ContasRepository(AppDbContext db) : base(db)
         {
