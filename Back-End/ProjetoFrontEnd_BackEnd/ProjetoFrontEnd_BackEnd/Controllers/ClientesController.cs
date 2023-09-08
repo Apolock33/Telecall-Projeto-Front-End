@@ -25,9 +25,9 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
             var clientedto = new ClienteDTO();
             try
             {
-                var verify = _clienteService.Verify(cliente);
+                var verify = await _clienteService.Verify(cliente);
 
-                if (verify.Result.Email == null)
+                if (verify == null)
                 {
                     cliente.ClienteId = Guid.NewGuid();
                     clientedto.ClienteId = cliente.ClienteId;
@@ -36,12 +36,15 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
                     clientedto.Documento = cliente.Documento;
                     clientedto.Phone = cliente.Phone;
 
-                    resposta.Success = true;
-                    resposta.StatusCode = HttpStatusCode.Created;
-                    resposta.Data = clientedto;
-                    resposta.Message = "Cliente Cadastrado";
+                    var postCliente = await _clienteService.Create(cliente);
 
-                    await _clienteService.Create(cliente);
+                    if(postCliente != null)
+                    {
+                        resposta.Success = true;
+                        resposta.StatusCode = HttpStatusCode.Created;
+                        resposta.Data = clientedto;
+                        resposta.Message = "Cliente Cadastrado";
+                    }
 
                     return Ok(resposta);
                 }
@@ -49,7 +52,6 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
                 {
                     resposta.Success = false;
                     resposta.StatusCode = HttpStatusCode.OK;
-                    resposta.Data = clientedto;
                     resposta.Message = "Email já existente";
 
                     return Ok(resposta);

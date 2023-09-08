@@ -23,7 +23,7 @@ namespace ProjetoFrontEnd_BackEnd.Services
 
             var verifyEmail = await _clienteRepository.GetBy(c => c.Email == cliente.Email);
 
-            if (verifyEmail.Email == null)
+            if (verifyEmail == null)
             {
                 var postCliente = _clienteRepository.Post(cliente);
 
@@ -83,7 +83,7 @@ namespace ProjetoFrontEnd_BackEnd.Services
 
             var getCliente = _clienteRepository.GetBy(c => c.Email == cliente.Email);
 
-            if (getCliente.Result != null)
+            if (getCliente.Result.Email == cliente.Email)
             {
                 clientedto.Nome = getCliente.Result.Nome;
                 clientedto.Documento = getCliente.Result.Documento;
