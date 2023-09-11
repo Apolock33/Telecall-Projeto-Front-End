@@ -199,19 +199,29 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
                 {
                     var deleteCliente = await _clienteService.Delete(id);
 
+                    resposta.Success = true;
+                    resposta.StatusCode = HttpStatusCode.OK;
+                    resposta.Message = $"Cliente: {getCliente.Nome}"
+                        + $"Id:{getCliente.ClienteId}"
+                        + "Status: Deletado.";
+                }
+                else
+                {
                     resposta.Success = false;
-                    resposta.StatusCode = HttpStatusCode.BadRequest;
-                    resposta.Message = $"Cliente: {getCliente.Nome}\nId: {getCliente.ClienteId}\n Status: Deletado.";
+                    resposta.StatusCode = HttpStatusCode.OK;
+                    resposta.Message = $"Cliente: {getCliente.Nome}"
+                        + $"Id:{getCliente.ClienteId}"
+                        + "Status: Não Encontrado.";
                 }
 
                 return Ok(resposta);
             }
-            catch (NullReferenceException ex)
+            catch (Exception ex)
             {
                 resposta.Success = false;
                 resposta.StatusCode = HttpStatusCode.BadRequest;
                 resposta.Data = clientedto;
-                resposta.Message = $"Não encontrado. Detalhamento de erro: {ex.Message}";
+                resposta.Message = $"Não Deletado. Detalhamento de erro: {ex.Message}";
 
                 return BadRequest(resposta);
             }

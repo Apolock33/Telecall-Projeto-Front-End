@@ -74,3 +74,4 @@ C:\Users\carlos.gomes\Desktop\Estudo\Projetos\UNISUAM\Telecall-Projeto-Front-End
 C:\Users\carlos.gomes\Desktop\Estudo\Projetos\UNISUAM\Telecall-Projeto-Front-End\Back-End\ProjetoFrontEnd_BackEnd\ProjetoFrontEnd_BackEnd\obj\Debug\net7.0\ProjetoFrontEnd_BackEnd.pdb
 C:\Users\carlos.gomes\Desktop\Estudo\Projetos\UNISUAM\Telecall-Projeto-Front-End\Back-End\ProjetoFrontEnd_BackEnd\ProjetoFrontEnd_BackEnd\obj\Debug\net7.0\ProjetoFrontEnd_BackEnd.genruntimeconfig.cache
 C:\Users\carlos.gomes\Desktop\Estudo\Projetos\UNISUAM\Telecall-Projeto-Front-End\Back-End\ProjetoFrontEnd_BackEnd\ProjetoFrontEnd_BackEnd\obj\Debug\net7.0\ref\ProjetoFrontEnd_BackEnd.dll
+C:\Users\carlos.gomes\Desktop\Estudo\Projetos\UNISUAM\Telecall-Projeto-Front-End\Back-End\ProjetoFrontEnd_BackEnd\ProjetoFrontEnd_BackEnd\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

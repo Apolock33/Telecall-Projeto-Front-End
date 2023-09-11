@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProjetoFrontEnd_BackEnd.Models.Context;
 using ProjetoFrontEnd_BackEnd.Repositories.Interfaces;
+using System;
 using System.Linq.Expressions;
 
 namespace ProjetoFrontEnd_BackEnd.Repositories
@@ -21,12 +22,7 @@ namespace ProjetoFrontEnd_BackEnd.Repositories
 
         public async Task<T> GetBy(Expression<Func<T, bool>> entity)
         {
-            var getId = await Task.Run(() => _db.Set<T>().Where(entity).FirstOrDefaultAsync());
-            if (getId == null)
-            {
-                getId = null;
-            }
-            return getId;
+            return await Task.Run(() => _db.Set<T>().Where(entity).FirstOrDefaultAsync());
         }
 
         public async Task<T> Post(T entity)

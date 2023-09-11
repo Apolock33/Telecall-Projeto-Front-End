@@ -66,10 +66,11 @@ namespace ProjetoFrontEnd_BackEnd.Services
 
             var getCliente = _clienteRepository.GetBy(c => c.ClienteId == id);
 
-            if (getCliente != null)
+            if (getCliente.Result != null)
             {
                 clientedto.ClienteId = getCliente.Result.ClienteId;
                 clientedto.Nome = getCliente.Result.Nome;
+                clientedto.Email = getCliente.Result.Email;
                 clientedto.Documento = getCliente.Result.Documento;
                 clientedto.Phone = getCliente.Result.Phone;
             }
@@ -116,9 +117,9 @@ namespace ProjetoFrontEnd_BackEnd.Services
 
             var getCliente = _clienteRepository.GetBy(c => c.ClienteId == id);
 
-            if (getCliente != null)
+            if (getCliente.Result != null)
             {
-                var postCliente = _clienteRepository.Post(getCliente.Result);
+                var deleteCliente = _clienteRepository.Delete(id);
                 resposta = true;
             }
 
