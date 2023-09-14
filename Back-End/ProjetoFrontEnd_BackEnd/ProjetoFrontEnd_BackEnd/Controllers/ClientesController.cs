@@ -29,8 +29,8 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
 
                 if (verify == null)
                 {
-                    cliente.ClienteId = Guid.NewGuid();
-                    clientedto.ClienteId = cliente.ClienteId;
+                    cliente.Id = Guid.NewGuid();
+                    clientedto.ClienteId = cliente.Id;
                     clientedto.Nome = cliente.Nome;
                     clientedto.Email = cliente.Email;
                     clientedto.Documento = cliente.Documento;
@@ -158,7 +158,7 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
                 {
                     var putCliente = await _clienteService.Update(cliente);
 
-                    clientedto.ClienteId = cliente.ClienteId;
+                    clientedto.ClienteId = cliente.Id;
                     clientedto.Nome = cliente.Nome;
                     clientedto.Email = cliente.Email;
                     clientedto.Documento = cliente.Documento;

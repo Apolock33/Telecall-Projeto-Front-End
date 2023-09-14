@@ -9,7 +9,14 @@ namespace ProjetoFrontEnd_BackEnd.Models.Context
         }
 
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Servico> Servicos { get; set; }
+        public DbSet<ClienteServico> ClientesServicos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Cliente>().HasMany(c => c.ClienteServico).WithOne(cs => cs.Cliente);
+        }
     }
 }

@@ -6,8 +6,13 @@ namespace ProjetoFrontEnd_BackEnd.Models
     [Table("Clientes")]
     public class Cliente
     {
+        public Cliente()
+        {
+            ClienteServico = new HashSet<ClienteServico>();
+        }
+
         [Key]
-        public Guid ClienteId { get; set; }
+        public Guid Id { get; set; }
         [Required]
         [StringLength(200, ErrorMessage = "O número máximo de caracteres foi atingido")]
         public string? Nome { get; set; }
@@ -20,5 +25,7 @@ namespace ProjetoFrontEnd_BackEnd.Models
         [Required]
         [StringLength(20, ErrorMessage = "O número máximo de caracteres foi atingido")]
         public string? Phone { get; set; }
+
+        public virtual ICollection<ClienteServico>? ClienteServico { get; set; }
     }
 }

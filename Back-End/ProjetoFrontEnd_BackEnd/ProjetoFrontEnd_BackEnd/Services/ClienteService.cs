@@ -48,7 +48,7 @@ namespace ProjetoFrontEnd_BackEnd.Services
 
             for (int i = listaClientes.Count(); i != 0; i--)
             {
-                clientedto.ClienteId = listaClientes[i - 1].ClienteId;
+                clientedto.ClienteId = listaClientes[i - 1].Id;
                 clientedto.Documento = listaClientes[i - 1].Documento;
                 clientedto.Email = listaClientes[i - 1].Email;
                 clientedto.Nome = listaClientes[i - 1].Nome;
@@ -64,11 +64,11 @@ namespace ProjetoFrontEnd_BackEnd.Services
         {
             var clientedto = new ClienteDTO();
 
-            var getCliente = _clienteRepository.GetBy(c => c.ClienteId == id);
+            var getCliente = _clienteRepository.GetBy(c => c.Id == id);
 
             if (getCliente.Result != null)
             {
-                clientedto.ClienteId = getCliente.Result.ClienteId;
+                clientedto.ClienteId = getCliente.Result.Id;
                 clientedto.Nome = getCliente.Result.Nome;
                 clientedto.Email = getCliente.Result.Email;
                 clientedto.Documento = getCliente.Result.Documento;
@@ -102,7 +102,7 @@ namespace ProjetoFrontEnd_BackEnd.Services
 
             if (cliente != null)
             {
-                clientedto.ClienteId = updateCliente.Result.ClienteId;
+                clientedto.ClienteId = updateCliente.Result.Id;
                 clientedto.Nome = updateCliente.Result.Nome;
                 clientedto.Documento = updateCliente.Result.Documento;
                 clientedto.Phone = updateCliente.Result.Phone;
@@ -115,7 +115,7 @@ namespace ProjetoFrontEnd_BackEnd.Services
         {
             var resposta = false;
 
-            var getCliente = _clienteRepository.GetBy(c => c.ClienteId == id);
+            var getCliente = _clienteRepository.GetBy(c => c.Id == id);
 
             if (getCliente.Result != null)
             {

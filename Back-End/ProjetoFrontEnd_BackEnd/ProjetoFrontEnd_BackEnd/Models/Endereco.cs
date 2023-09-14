@@ -9,6 +9,7 @@ namespace ProjetoFrontEnd_BackEnd.Models
         [Key]
         public Guid EnderecoId { get; set; }
 
+        [Required]
         [ForeignKey("Usuarios")]
         public Guid UsuarioId { get; set; }
         public Usuario? Usuario { get; set; }

@@ -37,6 +37,6 @@ namespace ProjetoFrontEnd_BackEnd.Models
         [DataType(DataType.DateTime)]
         public DateTime CriadoEm { get; set; }
 
-        public Endereco Endereco { get; set; }
+        public virtual Endereco? Endereco { get; set; }
     }
 }
