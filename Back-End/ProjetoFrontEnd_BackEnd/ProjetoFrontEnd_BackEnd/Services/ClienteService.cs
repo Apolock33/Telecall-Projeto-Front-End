@@ -78,22 +78,6 @@ namespace ProjetoFrontEnd_BackEnd.Services
             return Task.FromResult(clientedto);
         }
 
-        public Task<ClienteDTO> Verify(Cliente cliente)
-        {
-            var clientedto = new ClienteDTO();
-
-            var getCliente = _clienteRepository.GetBy(c => c.Email == cliente.Email);
-
-            if (getCliente.Result.Email == cliente.Email)
-            {
-                clientedto.Nome = getCliente.Result.Nome;
-                clientedto.Documento = getCliente.Result.Documento;
-                clientedto.Phone = getCliente.Result.Phone;
-            }
-
-            return Task.FromResult(clientedto);
-        }
-
         public Task<ClienteDTO> Update(Cliente cliente)
         {
             var clientedto = new ClienteDTO();

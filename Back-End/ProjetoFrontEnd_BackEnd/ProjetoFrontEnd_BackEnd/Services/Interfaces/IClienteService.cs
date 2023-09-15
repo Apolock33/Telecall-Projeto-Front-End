@@ -8,7 +8,6 @@ namespace ProjetoFrontEnd_BackEnd.Services.Interfaces
         Task<ClienteDTO> Create(Cliente cliente);
         Task<IEnumerable<ClienteDTO>> GetAll();
         Task<ClienteDTO> GetById(Guid id);
-        Task<ClienteDTO> Verify(Cliente Cliente);
         Task<ClienteDTO> Update(Cliente cliente);
         Task<bool> Delete(Guid id);
     }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using ProjetoFrontEnd_BackEnd.DTOs;
+using System.ComponentModel;
 using System.Net;
 
 namespace ProjetoFrontEnd_BackEnd.Models
@@ -10,7 +11,19 @@ namespace ProjetoFrontEnd_BackEnd.Models
         [DefaultValue(HttpStatusCode.OK)]
         public HttpStatusCode? StatusCode { get; set; }
         [DefaultValue(null)]
-        public T? Data { get; set; }
+        public List<T>? Data { get; set; }
+        [DefaultValue(null)]
+        public string? Message { get; set; }
+    }
+
+    public class RespostaUsuario
+    {
+        [DefaultValue(true)]
+        public bool Success { get; set; }
+        [DefaultValue(HttpStatusCode.OK)]
+        public HttpStatusCode? StatusCode { get; set; }
+        [DefaultValue(null)]
+        public string? Token { get; set; }
         [DefaultValue(null)]
         public string? Message { get; set; }
     }

@@ -23,11 +23,14 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
             var resposta = new Resposta<ClienteDTO>();
 
             var clientedto = new ClienteDTO();
+
+            var listClientedto = new List<ClienteDTO>();
+
             try
             {
-                var verify = await _clienteService.Verify(cliente);
+                var verify = await _clienteService.GetById(cliente.Id);
 
-                if (verify == null)
+                if (verify.Documento == null && verify.Email == null)
                 {
                     cliente.Id = Guid.NewGuid();
                     clientedto.ClienteId = cliente.Id;
@@ -38,11 +41,14 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
 
                     var postCliente = await _clienteService.Create(cliente);
 
-                    if(postCliente != null)
+                    if (postCliente != null)
                     {
+
+                        listClientedto.Add(clientedto);
+
                         resposta.Success = true;
                         resposta.StatusCode = HttpStatusCode.Created;
-                        resposta.Data = clientedto;
+                        resposta.Data = listClientedto;
                         resposta.Message = "Cliente Cadastrado";
                     }
 
@@ -61,7 +67,7 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
             {
                 resposta.Success = false;
                 resposta.StatusCode = HttpStatusCode.BadRequest;
-                resposta.Data = clientedto;
+                resposta.Data = listClientedto;
                 resposta.Message = $"Formulário nulo. Detalhamento de erro: {ex.Message}";
 
                 return BadRequest(resposta);
@@ -77,18 +83,20 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
             {
                 var listAllClientes = await _clienteService.GetAll();
 
+                resposta.Success = true;
+                resposta.StatusCode = HttpStatusCode.OK;
+                resposta.Data = listAllClientes.ToList();
+                resposta.Message = $"Lista de Clientes Encontrado";
+
                 if (listAllClientes == null)
                 {
                     resposta.Success = true;
                     resposta.StatusCode = HttpStatusCode.OK;
+                    resposta.Data = null;
                     resposta.Message = $"Nenhum cliente encontrado";
+                }
 
-                    return Ok(resposta);
-                }
-                else
-                {
-                    return Ok(listAllClientes);
-                }
+                return Ok(resposta);
             }
             catch (Exception ex)
             {
@@ -106,6 +114,8 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
             var resposta = new Resposta<ClienteDTO>();
 
             var clientedto = new ClienteDTO();
+
+            var listClientedto = new List<ClienteDTO>();
 
             try
             {
@@ -127,9 +137,11 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
                     clientedto.Documento = getClientes.Documento;
                     clientedto.Phone = getClientes.Phone;
 
+                    listClientedto.Add(clientedto);
+
                     resposta.Success = true;
                     resposta.StatusCode = HttpStatusCode.OK;
-                    resposta.Data = clientedto;
+                    resposta.Data = listClientedto;
                     resposta.Message = $"Cliente Encontrado";
 
                     return Ok(resposta);
@@ -152,6 +164,8 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
 
             var clientedto = new ClienteDTO();
 
+            var listClientedto = new List<ClienteDTO>();
+
             try
             {
                 if (cliente != null)
@@ -164,9 +178,11 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
                     clientedto.Documento = cliente.Documento;
                     clientedto.Phone = cliente.Phone;
 
+                    listClientedto.Add(clientedto);
+
                     resposta.Success = true;
                     resposta.StatusCode = HttpStatusCode.Accepted;
-                    resposta.Data = clientedto;
+                    resposta.Data = listClientedto;
                     resposta.Message = "Cliente Atualizado";
                 }
 
@@ -177,7 +193,7 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
             {
                 resposta.Success = false;
                 resposta.StatusCode = HttpStatusCode.BadRequest;
-                resposta.Data = clientedto;
+                resposta.Data = listClientedto;
                 resposta.Message = $"Formulário nulo. Detalhamento de erro: {ex.Message}";
 
                 return BadRequest(resposta);
@@ -189,8 +205,6 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
         {
             var resposta = new Resposta<ClienteDTO>();
 
-            var clientedto = new ClienteDTO();
-
             try
             {
                 var getCliente = await _clienteService.GetById(id);
@@ -201,9 +215,7 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
 
                     resposta.Success = true;
                     resposta.StatusCode = HttpStatusCode.OK;
-                    resposta.Message = $"Cliente: {getCliente.Nome}"
-                        + $"Id:{getCliente.ClienteId}"
-                        + "Status: Deletado.";
+                    resposta.Message = $"Cliente Deletado Com Sucesso.";
                 }
                 else
                 {
@@ -220,7 +232,6 @@ namespace ProjetoFrontEnd_BackEnd.Controllers
             {
                 resposta.Success = false;
                 resposta.StatusCode = HttpStatusCode.BadRequest;
-                resposta.Data = clientedto;
                 resposta.Message = $"Não Deletado. Detalhamento de erro: {ex.Message}";
 
                 return BadRequest(resposta);

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ProjetoFrontEnd_BackEnd.Services
 {
-    public class TokenServices
+    public class TokenService
     {
         public static object GenerateToken(Usuario usuario)
         {

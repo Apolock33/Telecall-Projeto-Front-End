@@ -13,7 +13,6 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 #region Context
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 #endregion
@@ -21,14 +20,16 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 #region Repository
 builder.Services.AddTransient<IClienteRepository, ClienteRepository>();
 builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddTransient<IEnderecoRepository, EnderecoRepository>();
 #endregion
 
 #region Service
 builder.Services.AddTransient<IClienteService, ClienteService>();
+builder.Services.AddTransient<IUsuarioService, UsuarioService>();
 #endregion
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
