@@ -24,7 +24,9 @@ namespace ProjetoFrontEnd_BackEnd.Models
         public string? NomeMaterno { get; set; }
         public string? Login { get; set; }
         public string? Senha { get; set; }
+        [DefaultValue(1)]
         public int Tipo { get; set; }
+        [DefaultValue("123456")]
         public string? CodigoDeValidacao { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime CriadoEm { get; set; }

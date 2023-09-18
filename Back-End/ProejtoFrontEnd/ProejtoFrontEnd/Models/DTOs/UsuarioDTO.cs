@@ -16,6 +16,8 @@ namespace ProjetoFrontEnd_BackEnd.DTOs
         public string? NomeMaterno { get; set; }
         public string? Login { get; set; }
         public string? Senha { get; set; }
+        public int Tipo { get; set; }
+        public string? CodigoDeValidacao { get; set; }
         public DateTime CriadoEm { get; set; }
     }
 }
