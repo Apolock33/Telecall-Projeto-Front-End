@@ -85,10 +85,19 @@ namespace ProejtoFrontEnd.Controllers
             {
                 var getById = await _clienteService.GetCliente(id);
 
+                if(getById == null)
+                {
+
+                    resposta.Message = "Cliente Não Encontrado";
+                }
+                else
+                {
+                    resposta.Message = "Cliente Encontrado";
+                }
+
                 resposta.Success = true;
                 resposta.StatusCode = HttpStatusCode.OK;
                 resposta.Data = getById.ToList();
-                resposta.Message = "Cliente Encontrado";
 
                 return Ok(resposta);
             }
