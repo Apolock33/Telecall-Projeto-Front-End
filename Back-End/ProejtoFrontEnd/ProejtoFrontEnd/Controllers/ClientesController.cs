@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProejtoFrontEnd.Services.Interfaces;
 using ProjetoFrontEnd_BackEnd.DTOs;
 using ProjetoFrontEnd_BackEnd.Models;
@@ -16,10 +17,11 @@ namespace ProejtoFrontEnd.Controllers
             _clienteService = clienteService;
         }
 
+        [Authorize]
         [HttpPost("CriarCliente")]
         public async Task<IActionResult> CriarCliente(Cliente cliente)
         {
-            var resposta = new Respostas<ClienteDTO>();
+            var resposta = new Resposta<ClienteDTO>();
 
             var lista = new List<ClienteDTO>();
 
@@ -49,10 +51,11 @@ namespace ProejtoFrontEnd.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet("ListarClientes")]
         public async Task<IActionResult> GetAllClientes()
         {
-            var resposta = new Respostas<ClienteDTO>();
+            var resposta = new Resposta<ClienteDTO>();
 
             try
             {
@@ -76,10 +79,11 @@ namespace ProejtoFrontEnd.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet("ObterClienteById")]
         public async Task<IActionResult> ObterClienteById(Guid id)
         {
-            var resposta = new Respostas<ClienteDTO>();
+            var resposta = new Resposta<ClienteDTO>();
 
             try
             {
@@ -112,10 +116,11 @@ namespace ProejtoFrontEnd.Controllers
             }
         }
 
+        [Authorize]
         [HttpPut("AtualizarCliente")]
         public async Task<IActionResult> AtualizarCliente(Cliente cliente)
         {
-            var resposta = new Respostas<ClienteDTO>();
+            var resposta = new Resposta<ClienteDTO>();
 
             var lista = new List<ClienteDTO>();
 
@@ -145,10 +150,11 @@ namespace ProejtoFrontEnd.Controllers
             }
         }
 
+        [Authorize]
         [HttpDelete("DeletarCliente")]
         public async Task<IActionResult> DeletarCliente(Guid id)
         {
-            var resposta = new Respostas<ClienteDTO>();
+            var resposta = new Resposta<ClienteDTO>();
 
             try
             {

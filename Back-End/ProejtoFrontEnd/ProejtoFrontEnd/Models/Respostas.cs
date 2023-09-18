@@ -4,7 +4,7 @@ using System.Net;
 
 namespace ProjetoFrontEnd_BackEnd.Models
 {
-    public class Respostas<T>
+    public class Resposta<T>
     {
         [DefaultValue(false)]
         public bool Success { get; set; }

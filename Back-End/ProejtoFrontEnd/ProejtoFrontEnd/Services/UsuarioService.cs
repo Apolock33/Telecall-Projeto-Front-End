@@ -1,7 +1,9 @@
-﻿using ProejtoFrontEnd.Repositories.Interfaces;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using ProejtoFrontEnd.Repositories.Interfaces;
 using ProejtoFrontEnd.Services.Interfaces;
 using ProjetoFrontEnd_BackEnd.DTOs;
 using ProjetoFrontEnd_BackEnd.Models;
+using System.Net;
 
 namespace ProejtoFrontEnd.Services
 {
@@ -63,6 +65,46 @@ namespace ProejtoFrontEnd.Services
             }
 
             return codigoDeValidacao.ToUpper();
+        }
+
+        public async Task<RespostaUsuario> LogIn(string logIn, string senha)
+        {
+            var resposta = new RespostaUsuario();
+
+            var validarLogIn = await _usuarioRepository.ValidarLogin(logIn);
+
+            if (validarLogIn)
+            {
+                var validarSenha = await _usuarioRepository.ValidarSenha(senha);
+
+                if (validarSenha)
+                {
+                    var token = TokenService.GenerateToken(new Usuario());
+
+                    resposta.Success = true;
+                    resposta.StatusCode = HttpStatusCode.Accepted;
+                    resposta.Token = token.ToString();
+                    resposta.Message = "Token Gerado Com Sucesso";
+                }
+                else
+                {
+                    resposta.Success = true;
+                    resposta.StatusCode = HttpStatusCode.BadRequest;
+                    resposta.Token = "";
+                    resposta.Message = "Falha ao gerar token!";
+                }
+
+                return resposta;
+            }
+            else
+            {
+                resposta.Success = true;
+                resposta.StatusCode = HttpStatusCode.BadRequest;
+                resposta.Token = "";
+                resposta.Message = "Falha ao gerar token!";
+
+                return resposta;
+            }
         }
     }
 }

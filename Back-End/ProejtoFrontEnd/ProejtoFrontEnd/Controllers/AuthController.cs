@@ -19,17 +19,17 @@ namespace ProejtoFrontEnd.Controllers
         [HttpPost("Registrar")]
         public async Task<IActionResult> Registrar(Usuario usuario)
         {
-            var resposta = new Respostas<UsuarioDTO>();
+            var resposta = new Resposta<UsuarioDTO>();
 
             var listaResult = new List<UsuarioDTO>();
 
             try
             {
-                var criarCliente = await _usuarioService.PostUsuario(usuario);
+                var criarUsuario = await _usuarioService.PostUsuario(usuario);
 
-                if(criarCliente.Login != null)
+                if (criarUsuario.Login != null)
                 {
-                    listaResult.Add(criarCliente);
+                    listaResult.Add(criarUsuario);
 
                     resposta.Success = true;
                     resposta.StatusCode = HttpStatusCode.Created;
@@ -52,6 +52,27 @@ namespace ProejtoFrontEnd.Controllers
                 resposta.StatusCode = HttpStatusCode.BadGateway;
                 resposta.Data = listaResult;
                 resposta.Message = $"Falha ao criar usuario. Detalhamento de erro: {ex.Message}";
+
+                return BadRequest(resposta);
+            }
+        }
+
+        [HttpPost("LogIn")]
+        public async Task<IActionResult> LogIn(string login, string senha)
+        {
+            var resposta = new RespostaUsuario();
+            try
+            {
+                var logIn = await _usuarioService.LogIn(login, senha);
+
+                return Ok(logIn);
+            }
+            catch(Exception ex)
+            {
+                resposta.Success = false;
+                resposta.StatusCode = HttpStatusCode.BadRequest;
+                resposta.Token = "";
+                resposta.Message = $"Falha ao gerar token. Detalhamento de erro: {ex.Message}";
 
                 return BadRequest(resposta);
             }
