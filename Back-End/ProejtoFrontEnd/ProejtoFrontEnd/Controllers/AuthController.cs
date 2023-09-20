@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ProejtoFrontEnd.Services;
 using ProejtoFrontEnd.Services.Interfaces;
 using ProjetoFrontEnd_BackEnd.DTOs;
 using ProjetoFrontEnd_BackEnd.Models;
@@ -61,13 +62,14 @@ namespace ProejtoFrontEnd.Controllers
         public async Task<IActionResult> LogIn(string login, string senha)
         {
             var resposta = new RespostaUsuario();
+
             try
             {
                 var logIn = await _usuarioService.LogIn(login, senha);
 
                 return Ok(logIn);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 resposta.Success = false;
                 resposta.StatusCode = HttpStatusCode.BadRequest;
@@ -76,6 +78,14 @@ namespace ProejtoFrontEnd.Controllers
 
                 return BadRequest(resposta);
             }
+        }
+
+        [HttpGet("GerarChave")]
+        public async Task<IActionResult> GerarChave()
+        {
+            var chave = TokenService.Secret();
+
+            return Ok(chave);
         }
     }
 }

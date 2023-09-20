@@ -4,6 +4,8 @@ using ProjetoFrontEnd_BackEnd.Models.JWT;
 using System.Text;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Cryptography;
+using System.Net;
 
 namespace ProejtoFrontEnd.Services
 {
@@ -26,10 +28,46 @@ namespace ProejtoFrontEnd.Services
             var token = tokenHandler.CreateToken(tokenConfig);
             var tokenString = tokenHandler.WriteToken(token);
 
-            return new
+            return tokenString;
+        }
+
+        public static Resposta<string> Secret()
+        {
+            var resposta = new Resposta<string>();
+
+            var list = new List<string>();
+
+            try
             {
-                token = tokenString
-            };
+                int keySizeInBytes = 64;
+
+                using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
+                {
+                    byte[] keyBytes = new byte[keySizeInBytes];
+
+                    rng.GetBytes(keyBytes);
+
+                    string base64Key = Convert.ToBase64String(keyBytes);
+
+                    list.Add(base64Key);
+
+                    resposta.Success = true;
+                    resposta.StatusCode = HttpStatusCode.OK;
+                    resposta.Data = list;
+                    resposta.Message = "Chave gerada";
+
+                    return resposta;
+                }
+            }
+            catch (Exception ex)
+            {
+                resposta.Success = true;
+                resposta.StatusCode = HttpStatusCode.OK;
+                resposta.Data = list;
+                resposta.Message = $"Chave não gerada. Detalhamento de erro: {ex.Message}";
+
+                return resposta;
+            }
         }
     }
 }
