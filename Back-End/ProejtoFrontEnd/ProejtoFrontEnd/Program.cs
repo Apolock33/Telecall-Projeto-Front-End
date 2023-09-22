@@ -19,11 +19,13 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 #region Repository
 builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddTransient<IEnderecoRepository, EnderecoRepository>();
+builder.Services.AddTransient<ILogRepository, LogRepository>();
 #endregion
 
 #region Service
 builder.Services.AddTransient<IEnderecoService, EnderecoService>();
 builder.Services.AddTransient<IUsuarioService, UsuarioService>();
+builder.Services.AddTransient<ILogService, LogService>();
 #endregion
 
 builder.Services.AddControllers();
