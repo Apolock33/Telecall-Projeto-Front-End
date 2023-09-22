@@ -9,11 +9,11 @@ using System.Net;
 namespace ProejtoFrontEnd.Controllers
 {
     [ApiController]
-    [Route("Auth")]
-    public class AuthController : Controller
+    [Route("Usuario")]
+    public class UsuarioController : Controller
     {
         private readonly IUsuarioService _usuarioService;
-        public AuthController(IUsuarioService usuarioService)
+        public UsuarioController(IUsuarioService usuarioService)
         {
             _usuarioService = usuarioService;
         }
@@ -188,9 +188,9 @@ namespace ProejtoFrontEnd.Controllers
 
             try
             {
-                var deleteCliente = await _usuarioService.DeleteUsuario(id);
+                var deleteUsuario = await _usuarioService.DeleteUsuario(id);
 
-                if (deleteCliente)
+                if (deleteUsuario)
                 {
                     resposta.Success = true;
                     resposta.Data = new List<UsuarioDTO>();
@@ -205,7 +205,7 @@ namespace ProejtoFrontEnd.Controllers
                 resposta.Success = true;
                 resposta.Data = new List<UsuarioDTO>();
                 resposta.StatusCode = HttpStatusCode.BadRequest;
-                resposta.Message = $"Falha ao deletar ciente. Detalhamento de erro: {ex.Message}";
+                resposta.Message = $"Falha ao deletar usuario. Detalhamento de erro: {ex.Message}";
 
                 return BadRequest(resposta);
             }
