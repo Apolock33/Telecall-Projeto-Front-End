@@ -30,44 +30,5 @@ namespace ProejtoFrontEnd.Services
 
             return tokenString;
         }
-
-        public static Resposta<string> Secret()
-        {
-            var resposta = new Resposta<string>();
-
-            var list = new List<string>();
-
-            try
-            {
-                int keySizeInBytes = 64;
-
-                using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
-                {
-                    byte[] keyBytes = new byte[keySizeInBytes];
-
-                    rng.GetBytes(keyBytes);
-
-                    string base64Key = Convert.ToBase64String(keyBytes);
-
-                    list.Add(base64Key);
-
-                    resposta.Success = true;
-                    resposta.StatusCode = HttpStatusCode.OK;
-                    resposta.Data = list;
-                    resposta.Message = "Chave gerada";
-
-                    return resposta;
-                }
-            }
-            catch (Exception ex)
-            {
-                resposta.Success = true;
-                resposta.StatusCode = HttpStatusCode.OK;
-                resposta.Data = list;
-                resposta.Message = $"Chave não gerada. Detalhamento de erro: {ex.Message}";
-
-                return resposta;
-            }
-        }
     }
 }

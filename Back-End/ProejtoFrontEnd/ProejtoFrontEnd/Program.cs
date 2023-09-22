@@ -17,13 +17,11 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 #endregion
 
 #region Repository
-builder.Services.AddTransient<IClientesRepository, ClientesRepository>();
 builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddTransient<IEnderecoRepository, EnderecoRepository>();
 #endregion
 
 #region Service
-builder.Services.AddTransient<IClienteService, ClienteService>();
 builder.Services.AddTransient<IEnderecoService, EnderecoService>();
 builder.Services.AddTransient<IUsuarioService, UsuarioService>();
 #endregion

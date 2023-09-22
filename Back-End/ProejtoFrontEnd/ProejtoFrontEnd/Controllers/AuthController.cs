@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProejtoFrontEnd.Services;
 using ProejtoFrontEnd.Services.Interfaces;
 using ProjetoFrontEnd_BackEnd.DTOs;
@@ -15,6 +16,28 @@ namespace ProejtoFrontEnd.Controllers
         public AuthController(IUsuarioService usuarioService)
         {
             _usuarioService = usuarioService;
+        }
+
+        [HttpPost("LogIn")]
+        public async Task<IActionResult> LogIn(string login, string senha)
+        {
+            var resposta = new RespostaUsuario();
+
+            try
+            {
+                var logIn = await _usuarioService.LogIn(login, senha);
+
+                return Ok(logIn);
+            }
+            catch (Exception ex)
+            {
+                resposta.Success = false;
+                resposta.StatusCode = HttpStatusCode.BadRequest;
+                resposta.Token = "";
+                resposta.Message = $"Falha ao gerar token. Detalhamento de erro: {ex.Message}";
+
+                return BadRequest(resposta);
+            }
         }
 
         [HttpPost("Registrar")]
@@ -58,34 +81,134 @@ namespace ProejtoFrontEnd.Controllers
             }
         }
 
-        [HttpPost("LogIn")]
-        public async Task<IActionResult> LogIn(string login, string senha)
+        [Authorize]
+        [HttpGet("ListarUsuarios")]
+        public async Task<IActionResult> ListarUsuarios()
         {
-            var resposta = new RespostaUsuario();
+            var resposta = new Resposta<UsuarioDTO>();
 
             try
             {
-                var logIn = await _usuarioService.LogIn(login, senha);
+                var listarUsuarios = await _usuarioService.GetAllUsuarios();
 
-                return Ok(logIn);
+                resposta.Success = true;
+                resposta.StatusCode = HttpStatusCode.OK;
+                resposta.Data = listarUsuarios.ToList();
+                resposta.Message = "Lista de Usuarios Recuperada";
+
+                return Ok(resposta);
             }
             catch (Exception ex)
             {
-                resposta.Success = false;
+                resposta.Success = true;
                 resposta.StatusCode = HttpStatusCode.BadRequest;
-                resposta.Token = "";
-                resposta.Message = $"Falha ao gerar token. Detalhamento de erro: {ex.Message}";
+                resposta.Data = null;
+                resposta.Message = $"Erro ao Recuperar Lista de Usuarios. Detalhamento de Erro: {ex.Message}";
 
                 return BadRequest(resposta);
             }
         }
 
-        [HttpGet("GerarChave")]
-        public async Task<IActionResult> GerarChave()
+        [Authorize]
+        [HttpGet("ObterUsuarioById")]
+        public async Task<IActionResult> ObterUsuarioPorId(Guid id)
         {
-            var chave = TokenService.Secret();
+            var resposta = new Resposta<UsuarioDTO>();
 
-            return Ok(chave);
+            try
+            {
+                var getUsuario = await _usuarioService.GetUsuario(id);
+
+                if (getUsuario == null)
+                {
+
+                    resposta.Message = "Usuario Não Encontrado";
+                }
+                else
+                {
+                    resposta.Message = "Usuario Encontrado";
+                }
+
+                resposta.Success = true;
+                resposta.StatusCode = HttpStatusCode.OK;
+                resposta.Data = getUsuario.ToList();
+
+                return Ok(resposta);
+            }
+            catch (Exception ex)
+            {
+                resposta.Success = true;
+                resposta.StatusCode = HttpStatusCode.BadRequest;
+                resposta.Data = new List<UsuarioDTO>();
+                resposta.Message = $"Erro ao encontrar usuario. Detalhamento de erro: {ex.Message}";
+
+                return BadRequest(resposta);
+            }
+        }
+
+        [Authorize]
+        [HttpPut("AtualizarUsuario")]
+        public async Task<IActionResult> AtualizarCliente(Usuario usuario)
+        {
+            var resposta = new Resposta<UsuarioDTO>();
+
+            var lista = new List<UsuarioDTO>();
+
+            try
+            {
+                var update = await _usuarioService.PutUsuario(usuario);
+
+                if (update.Documento != null)
+                {
+                    lista.Add(update);
+
+                    resposta.Success = true;
+                    resposta.StatusCode = HttpStatusCode.OK;
+                    resposta.Data = lista;
+                    resposta.Message = "Usuario Atualizado Com Sucesso!";
+                }
+
+                return Ok(resposta);
+            }
+            catch (Exception ex)
+            {
+                resposta.Success = false;
+                resposta.StatusCode = HttpStatusCode.BadRequest;
+                resposta.Data = lista;
+                resposta.Message = $"Falha ao atualizar usuario. Detalhamento de erro: {ex.Message}";
+                return BadRequest(resposta);
+            }
+        }
+
+        [Authorize]
+        [HttpDelete("DeletarUsuario")]
+        public async Task<IActionResult> DeletarCliente(Guid id)
+        {
+            var resposta = new Resposta<UsuarioDTO>();
+
+            try
+            {
+                var deleteCliente = await _usuarioService.DeleteUsuario(id);
+
+                if (deleteCliente)
+                {
+                    resposta.Success = true;
+                    resposta.Data = new List<UsuarioDTO>();
+                    resposta.StatusCode = HttpStatusCode.Accepted;
+                    resposta.Message = "Usuario Deletado Com Sucesso";
+                }
+
+                return Ok(resposta);
+            }
+            catch (Exception ex)
+            {
+                resposta.Success = true;
+                resposta.Data = new List<UsuarioDTO>();
+                resposta.StatusCode = HttpStatusCode.BadRequest;
+                resposta.Message = $"Falha ao deletar ciente. Detalhamento de erro: {ex.Message}";
+
+                return BadRequest(resposta);
+            }
         }
     }
 }
