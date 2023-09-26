@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Usuario = () => {
+const Registro = () => {
     return (
         <React.Fragment>
-            <h1>Usuario</h1>
+            <h1>Registro</h1>
         </React.Fragment>
     );
 }
 
-export default Usuario;
+export default Registro;
