@@ -1,11 +1,11 @@
 import React from 'react';
 
-const LogIn = () => {
+const ButtonPadrao = () => {
     return (
         <React.Fragment>
-
+            
         </React.Fragment>
     );
 }
 
-export default LogIn;
+export default ButtonPadrao;

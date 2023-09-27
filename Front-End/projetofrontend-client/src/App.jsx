@@ -1,14 +1,12 @@
 import React from 'react';
 import { RouterProvider } from 'react-router-dom';
 import Router from './Router';
-import Body from './components/Body';
+import './assets/css/index.css';
 
 const App = () => {
   return (
     <React.Fragment>
-      <Body>
-        <RouterProvider router={Router} />
-      </Body>
+      <RouterProvider router={Router} />
     </React.Fragment>
   );
 }
