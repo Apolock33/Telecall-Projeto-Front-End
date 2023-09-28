@@ -1,0 +1,14 @@
+.header{
+    margin: 2rem;
+    box-shadow: #00000033 0px 12px 28px 0px, #0000001a 0px 2px 4px 0px, #ffffff0d 0px 0px 0px 1px inset;
+}
+
+.logo{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.logo div{
+    margin-left: 1rem;
+}
