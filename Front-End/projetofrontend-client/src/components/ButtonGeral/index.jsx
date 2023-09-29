@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-const ButtonGeral = ({content, color, onSubmit, className}) => {
+const ButtonGeral = ({ content, color, className, type }) => {
     return (
         <React.Fragment>
-            <Button className={className} onSubmit={onSubmit} variant={color}>
+            <Button type={type} className={className} variant={color}>
                 {content}
             </Button>
         </React.Fragment>

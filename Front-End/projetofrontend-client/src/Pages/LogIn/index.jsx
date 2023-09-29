@@ -6,7 +6,7 @@ import { Col, Row } from 'react-bootstrap';
 const LogIn = () => {
     return (
         <React.Fragment>
-            
+            <LoginForm/>
         </React.Fragment >
     );
 }

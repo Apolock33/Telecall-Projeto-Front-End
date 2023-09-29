@@ -1,0 +1,97 @@
+.formSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2.6rem;
+}
+
+.imgFormLogin {
+    background-image: url('../img/loginImage.jpg');
+    background-size: cover;
+    width: 90vw;
+    height: 90vh;
+    display: flex;
+    justify-content: end;
+    border-radius: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.formLogin {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    border-radius: 0 2rem 2rem 0;
+    width: 50vw;
+    height: 90vh;
+}
+
+.formLogin img {
+    margin-bottom: 3rem;
+    cursor: pointer;
+}
+
+.login {
+    margin-bottom: 1rem;
+}
+
+.login input {
+    width: 25rem;
+    height: 3rem;
+}
+
+.password input {
+    width: 25rem;
+    height: 3rem;
+}
+
+.extras {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ButtonGeral {
+    width: 25rem;
+    height: 3rem;
+    background-color: #0C4B77;
+}
+
+@media(max-width:768px) {
+    .imgFormLogin {
+        background-image: none;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: end;
+        border-radius: 0rem;
+        box-shadow:none;
+    }
+
+    .formLogin {
+        background-color: #ffffff;
+        border-radius: 3rem;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5rem;
+        width: 70vw;
+        height: 70vh;
+    }
+
+    .imgFormLogin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
