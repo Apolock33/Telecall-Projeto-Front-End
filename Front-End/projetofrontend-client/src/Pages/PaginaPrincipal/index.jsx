@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Menu from '../../components/Menu'
 import Footer from '../../components/Footer'
+import ConteudoModavo from './conteudoModavo';
 
 const PaginaPrincipal = () => {
-    const [bgColor, setBgColor] = useState('white');
-    const [colorIcon, setColorIcon] = useState('#0C4B77');
-    const [openMenu, setOpenMenu] = useState(false);
 
     return (
         <React.Fragment>
-            <Menu/>
-            <Footer/>
+            <Menu />
+            <ConteudoModavo />
+            <Footer />
         </React.Fragment>
     );
 }
