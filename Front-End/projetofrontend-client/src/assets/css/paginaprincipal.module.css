@@ -25,6 +25,7 @@
 
 .modavoLogo div p {
     text-align: start;
+    font-size: 1.2rem;
 }
 
 .buttonKnowMore {
@@ -70,26 +71,92 @@
 }
 
 .tfa {
+    margin-top: 3rem;
+}
+
+.sectionTitle {
+    display: flex;
+    justify-content: center;
+
+}
+
+.sectionDisplay {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem;
+}
+
+.tfaFSec div ul li {
+    font-size: 1.5rem;
+}
+
+.tfaFSec div ul li strong {
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: #0C4B77;
+    margin-right: 0.5rem;
+}
+
+.tfaSSec {
+    max-width: 40rem;
+    font-size: 1.2rem;
+}
+
+.numeroMascara{
     display: flex;
     flex-direction: column;
-    padding: 1rem;
-    margin-top: 2rem;
+    justify-content: center;
 }
 
-.tfa div h1 {
-
+.sectionTitleNM {
+    display: flex;
+    justify-content: center;
 }
 
-.tfa div h3 {
-    max-width: 100rem;
-    text-align: start;
+.sectionDisplayNM {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
 }
 
-.tfa div ul li strong {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #0c6fb6;
+.nMFSec{
+    max-width: 40rem;
 }
+
+.nMFSec p, .nMFSec ul li, .nMSSec {
+    font-size: 1.2rem;
+}
+
+.nMFSec ul li strong, .nMSSec h5{
+    font-weight: 600;
+    color: #0C4B77;
+}
+
+.nMSSec{
+    max-width: 40rem;
+}
+
+.nMTSec{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nMTSecContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 40rem;
+    font-size: 1.2rem;
+}
+
+.nMTSecContent ul li strong {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
 
 @media(max-width:769px) {
     .displayCover {
@@ -142,6 +209,7 @@
     .iconsDisplay {
         display: grid;
         grid-template-columns: 15rem 15rem;
+        gap: 5px;
     }
 
     .iconsContainer {
@@ -149,10 +217,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
-
-    .iconsContainer div {
-        margin: 0.5rem 0;
     }
 
     .iconsBg {
@@ -165,22 +229,123 @@
         text-align: center;
     }
 
-    .tfa {
+    .sectionTitle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .sectionDisplay {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 2rem;
     }
 
-    .tfa div h3 {
-        max-width: 30rem;
+    .tfaFSec h3 {
         text-align: center;
     }
 
-    .tfa div ul li strong {
+    .tfaFSec div ul li {
+        font-size: 1.2rem;
+    }
+
+    .tfaFSec div ul li strong {
+        color: #0C4B77;
         font-size: 2.5rem;
-        font-weight: 700;
-        color: #0c6fb6;
+        font-weight: 800;
+    }
+
+    .tfaSSec {
+        max-width: 30rem;
+    }
+
+    .tfaSSec div {
+        margin-top: 1rem;
+    }
+
+    .tfaSSec div ul {
+        font-size: 1.2rem;
+    }
+
+    .tfaSSec div h3 {
+        text-align: center;
+    }
+
+    .sectionTitleNM {
+        display: flex;
+        justify-content: center;
+    }
+
+    .sectionDisplayNM {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nMFSec {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 40rem;
+    }
+
+    .nMFSec p {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    .nMFSec ul li {
+        font-size: 1.2rem;
+    }
+
+    .nMFSec ul li strong {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .nMSSec {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 1.2rem;
+        max-width: 40rem;
+        margin-top: 1rem;
+    }
+
+    .nMSSec h3 {
+        margin-bottom: 2rem;
+    }
+
+    .nMSSec h5 {
+        margin-bottom: 1rem;
+        color: #0C4B77;
+    }
+
+    .nMSSec p {
+        font-size: 1.3rem;
+    }
+
+    .nMTSec {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 40rem;
+        margin-top: 2rem;
+    }
+
+    .nMTSec ul {
+        font-size: 1.2rem;
+    }
+
+    .nMTSec ul li strong {
+        font-size: 1.5rem;
+        font-weight: 600;
     }
 }

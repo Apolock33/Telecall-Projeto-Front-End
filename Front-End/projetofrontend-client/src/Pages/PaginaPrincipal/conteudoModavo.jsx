@@ -41,16 +41,6 @@ const ConteudoModavo = () => {
         }
     ];
 
-    const arraySectionsExplain = [
-        {
-            id: 1,
-            nameId: '2FA',
-            title: '2FA',
-            subTitle: 'Fortaleça a estratégia de segurança de seu negócio.',
-            paragraph: 'Adicionar um número de telefone de recuperação a uma conta individual pode bloquear até:'
-        }
-    ];
-
     return (
         <React.Fragment>
             <section id='intro'>
@@ -79,7 +69,7 @@ const ConteudoModavo = () => {
                         </div>
                     </div>
                     <div className={style.imgCover}>
-                        <Image src={modavoCover} width={800} />
+                        <Image src={modavoCover} width={500} />
                     </div>
                 </div>
             </section>
@@ -101,18 +91,75 @@ const ConteudoModavo = () => {
                 </div>
             </section>
             <section id='2FA' className={style.tfa}>
-                <div>
-                    <h1>2FA</h1>
+                <div className={style.sectionTitle}>
+                    <h1>Autenticação de 2 Fatores (2FA)</h1>
                 </div>
-                <div>
-                    <h3>Fortaleça a estratégia de segurança de seu negócio.</h3>
+                <div className={style.sectionDisplay}>
+                    <div className={style.tfaFSec}>
+                        <div>
+                            <h3>Fortaleça a estratégia de segurança<br /> de seu negócio.</h3>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><strong>100%</strong> dos bots automatizados</li>
+                                <li><strong>99%</strong> dos ataques de phishing em massa</li>
+                                <li><strong>66%</strong> dos ataques direcionados.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className={style.tfaSSec}>
+                        <div>
+                            <h3>Benefícios</h3>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>Ofereça segurança aprimorada para seus clientes.</li>
+                                <li>Reduza casos de fraude e invasões e evite o acesso a dados por invasores.</li>
+                                <li>Envio de OTP por meio de vários canais, incluindo SMS, voz ou e-mail.</li>
+                                <li>Flexibilidade de canais garante que o usuário conseguirá completar a tarefa desejada mesmo quando tiver problema com um deles. Exemplo: Enviar OTP por SMS, em caso de falha, enviar OTP por chamada de voz, em caso de outra falha, enviar por e-mail.</li>
+                                <li>API simples e de rápida implementação.</li>
+                                <li>Plataforma intuitiva que permite visualizar relatórios de uso por dia, mês ou ano e pesquisar usando diversos critérios de filtro.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <ul>
-                        <li><strong>100%</strong> dos bots automatizados</li>
-                        <li><strong>99%</strong> dos ataques de phishing em massa</li>
-                        <li><strong>66%</strong> dos ataques direcionados.</li>
-                    </ul>
+            </section>
+            <section id='numeroMascara' className={style.numeroMascara}>
+                <div className={style.sectionTitleNM}>
+                    <h1>Número Máscara</h1>
+                </div>
+                <div className={style.sectionDisplayNM}>
+                    <div className={style.nMFSec}>
+                        <h3>Proteja identidades profissionais</h3>
+                        <p>Garanta aos seus clientes a capacidade de fazer chamadas e enviar mensagens sem expor seus números de telefone pessoais.</p>
+                        <ul>
+                            <li><strong>Mascare</strong> um número de telefone para interações com mais privacidade.</li>
+                            <li><strong>Permite</strong> que empresas façam negócios usando menos números de telefone.</li>
+                            <li><strong>Oferece</strong> uma experiência mais segura e profissional.</li>
+                        </ul>
+                    </div>
+                    <div className={style.nMSSec}>
+                        <h3>Quem mais pode usar?</h3>
+                        <h5>43% das empresas brasileiras adotou o Home Office como padrão.</h5>
+                        <h5>Mesmo após o fim da pandemia, estatísticas indicam que o modelo de trabalho Home Office deve crescer cerca de 30%.</h5>
+                        <p>
+                            Funcionários que não possuem celular empresarial ou ramal virtual podem se beneficiar do uso de um número máscara permanente do trabalho vinculado ao seu telefone celular, assim protegendo seus número pessoais.
+                        </p>
+                    </div>
+                </div>
+                <div className={style.nMTSec}>
+                    <div className={style.nMTSecContent}>
+                        <h3>Recursos Avançados</h3>
+                        <ul>
+                            <li><strong>SMS –</strong> Número máscara é totalmente funcional para chamadas de voz e SMS.</li>
+                            <li><strong>Geo Match –</strong>  Combine o código do país do número mascarado com o da chamada de origem passando pro cliente a impressão de que vocês estão na mesma região.</li>
+                            <li><strong>Gestão de Sessões –</strong> Habilite números máscara permanentes, bloqueie chamadas indesejadas, validade de sessão e etc.</li>
+                            <li><strong>Relatórios –</strong>  Acesso direto do cliente à relatórios detalhados.</li>
+                            <li><strong>Números Simultâneos -</strong> Use o mesmo número máscara em várias ligações simultâneas.</li>
+                            <li><strong>Triagem de Conteúdo –</strong> Recurso SMS onde você pode sinalizar conteúdos sensíveis para proteger dados do cliente.</li>
+                            <li><strong>Escalabilidade Ilimitada –</strong> compre e adicione números conforme necessário.</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
         </React.Fragment>

@@ -12,7 +12,7 @@ const Menu = ({ onClick, hasSideBar }) => {
 
     return (
         <React.Fragment>
-            <Nav className={"navbar navbar-expand-lg navbar-dark bg-light m-4 rounded-4"} style={{ "box-shadow": "rgba(0, 0, 0, 0.35) 0px 0px 10px" }}>
+            <Nav className={"navbar navbar-expand-lg navbar-dark bg-light m-4 rounded-4"} style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 0px 10px" }}>
                 <Container fluid className='d-flex justify-content-between align-items-center'>
                     <Nav.Link className={style.logo}>
                         {(hasSideBar) ?
