@@ -7,6 +7,7 @@ import { IoIosArrowForward } from 'react-icons/io';
 import { FaLock } from 'react-icons/fa';
 import { FiCheck, FiSmartphone } from 'react-icons/fi';
 import { TbMessageCircle2Filled } from 'react-icons/tb'
+import ButtonScrollTop from '../../components/ButtonScrollTop';
 
 const ConteudoModavo = () => {
 
@@ -15,34 +16,35 @@ const ConteudoModavo = () => {
             id: 1,
             icon: FaLock,
             text: '2FA',
-            width: 100,
+            width: 70,
             color: '#ffffff'
         },
         {
             id: 2,
             icon: FiSmartphone,
             text: 'Números Máscara',
-            width: 100,
+            width: 70,
             color: '#ffffff'
         },
         {
             id: 3,
             icon: FiCheck,
             text: 'Google Verified Calls',
-            width: 100,
+            width: 70,
             color: '#ffffff'
         },
         {
             id: 4,
             icon: TbMessageCircle2Filled,
             text: 'SMS Programável',
-            width: 100,
+            width: 70,
             color: '#ffffff'
         }
     ];
 
     return (
         <React.Fragment>
+            <ButtonScrollTop/>
             <section id='intro'>
                 <div className={style.displayCover}>
                     <div className={style.modavoLogo}>
@@ -158,6 +160,140 @@ const ConteudoModavo = () => {
                             <li><strong>Números Simultâneos -</strong> Use o mesmo número máscara em várias ligações simultâneas.</li>
                             <li><strong>Triagem de Conteúdo –</strong> Recurso SMS onde você pode sinalizar conteúdos sensíveis para proteger dados do cliente.</li>
                             <li><strong>Escalabilidade Ilimitada –</strong> compre e adicione números conforme necessário.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section id='googleVCalls' className={style.gVerifiedCalls}>
+                <div className={style.gVCTitle}>
+                    <h1>Google Verified Calls</h1>
+                </div>
+                <div className={style.gVCContent}>
+                    <div className={style.gVCFSection}>
+                        <h5>
+                            Ligações de spam.
+                        </h5>
+                        <ul>
+                            <li>
+                                O Brasil é o país que mais sofre com ligações de spam no mundo.
+                            </li>
+                            <li>
+                                Desde 2017, as chamadas telefônicas de
+                                spam no Brasil aumentaram 141%.
+                            </li>
+                            <li>
+                                O brasileiro recebe em média 49,9 ligações de spam por mês.
+                            </li>
+                        </ul>
+                    </div>
+                    <div className={style.gVCSSection}>
+                        <h5>
+                            O que é?
+                        </h5>
+                        <h5>Chamadas Verificadas</h5>
+                        <p>
+                            Esse novo recurso do Google, exclusivo para
+                            telefones Android, permite que empresas exibam
+                            para o cliente na hora da chamada sua marca,
+                            logotipo e até mesmo o motivo da chamada.
+                            A Telecall é a <strong>primeira operadora de telecom no Brasil</strong> a oferecer esse recurso do Google.
+                        </p>
+                    </div>
+                    <div className={style.gVCTSection}>
+                        <h5>Compatibilidade</h5>
+                        <ul>
+                            <li>Exclusivo para sistema operacional Android através do aplicativo Telefone.</li>
+                            <li>Pré-instalado em telefones mais recentes ou pode ser baixado do Google Play Store para a maioria dos dispositivos com Android 9.0.</li>
+                            <li>Hoje no Brasil existem quase 239 milhões de celulares smartphone ativos, sendo que o sistema Android detém uma participação de mais de 86% do mercado de sistema operacional móvel no país.</li>
+                        </ul>
+                    </div>
+                    <div className={style.gVCQSection}>
+                        <h5>Benefícios</h5>
+                        <ul>
+                            <li>
+                                <strong>Estabeleça Confiança</strong><br />
+                                Clientes são mais propensos a atender chamadas de organizações com os quais estão
+                                familiarizadas e com as quais já tem relação.
+                            </li>
+                            <li>
+                                <strong>Agilize a Conexão</strong><br />
+                                Quando o motivo da chamada é claro, a chance de o cliente atender é muito maior e a conexão com ele mais rápida e eficiente.
+                            </li>
+                            <li>
+                                <strong>Melhore a Experiência do Cliente</strong><br />
+                                O nome da marca, logotipo e a visualização do motivo da chamada oferecem uma experiencia melhor e muito mais amigável para o cliente.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className={style.gVCQtSection}>
+                    <div>
+                        <h3>Usos</h3>
+                        <ul>
+                            <li>Aviso de problemas de fraude de cartão de crédito.</li>
+                            <li>Aviso de atrasos e cancelamentos de voos.</li>
+                            <li>Agendamentos de serviços, entregas, reparos e
+                                instalações.</li>
+                            <li>Avisos sobre agendamentos, exames e resultados.</li>
+                            <li>Oferecer uma melhor experiência de vendas e
+                                promoções</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section id='smsProgramavel' className={style.smsProgramavel}>
+                <div className={style.smsPTitle}>
+                    <h1>SMS Programável</h1>
+                </div>
+                <div className={style.smsPFSection}>
+                    <h3>O que é?</h3>
+                    <h6>Conecte-se com seus clientes.</h6>
+                    <p>
+                        É muito provável que você já tenha recebido uma
+                        mensagem de texto de uma empresa ou organização.
+                        Com uma API, qualquer empresa pode enviar mensagens de texto e impactar clientes, prospects ou fornecedores como parte de seu processo comercial.
+                        Com essa ferramenta você envia mensagens de SMS com as informações que o seu cliente precisa e com a segurança, a velocidade e a confiabilidade que você espera.
+                    </p>
+                </div>
+                <div className={style.smsPSSection}>
+                    <p>
+                        <strong>
+                            SMS é a forma mais rápida, eficiente e de baixo custo para se
+                            comunicar com seus clientes.
+                        </strong>
+                    </p>
+                    <div>
+                        <ul>
+                            <li><strong>98%</strong><br /> de taxa de abertura</li>
+                            <li>
+                                <strong>90%</strong><br /> dos SMS são lidos em
+                                até 3 minutos.
+                            </li>
+                            <li><strong>80%</strong><br /> das pessoas interagem
+                                com SMS comerciais.
+                            </li>
+                            <li>
+                                <strong>35x</strong><br /> maior a probabilidade de um
+                                cliente abrir um SMS do que
+                                um e-mail.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className={style.smsPTSection}>
+                    <div className={style.smsPTTitle}>
+                        <h3>Benefícios</h3>
+                    </div>
+                    <div className={style.smsPTlist}>
+                        <ul>
+                            <li>Comunicação rápida, efetiva e escalável.</li>
+                            <li>Alta taxa de entrega e leitura.</li>
+                            <li>Personalização de data, hora e conteúdo.</li>
+                            <li>Baixo custo.</li>
+                            <li>Interação bidirecional: recebimento de respostas.</li>
+                            <li>Agendamento de campanhas.</li>
+                            <li>Plataforma user-friendly.</li>
+                            <li>Acompanhamento de métricas e relatórios</li>
                         </ul>
                     </div>
                 </div>

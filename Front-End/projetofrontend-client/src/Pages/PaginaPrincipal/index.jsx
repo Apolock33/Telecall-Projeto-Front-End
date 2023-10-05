@@ -8,7 +8,7 @@ const PaginaPrincipal = () => {
     return (
         <React.Fragment>
             <Menu />
-            <ConteudoModavo />
+            <ConteudoModavo/>
             <Footer />
         </React.Fragment>
     );
