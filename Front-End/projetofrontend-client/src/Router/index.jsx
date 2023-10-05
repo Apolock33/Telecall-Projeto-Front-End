@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import Home from '../pages/Home';
-import Usuario from '../pages/Usuario';
+import Home from '../Pages/Home';
+import Usuario from '../Pages/Usuario';
 import LogIn from '../Pages/LogIn';
 import Registro from '../Pages/Registro';
 import PaginaPrincipal from '../Pages/PaginaPrincipal';
