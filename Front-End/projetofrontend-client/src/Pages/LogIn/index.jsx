@@ -1,28 +1,33 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import style from '../../assets/css/login.module.css';
 import { Form, FormGroup, FormLabel, FormControl, Image } from 'react-bootstrap';
 import imgLogo from '../../assets/img/Logo - Horizontal - Sem frase.png';
 import { Link } from 'react-router-dom';
 import ButtonGeral from '../../components/ButtonGeral';
-import { logInRequest } from '../../Services/usersService';
 import { Cookies } from 'react-cookie';
 import api from '../../Services/api';
-import axios from 'axios';
 
 const LogIn = () => {
     let cookies = new Cookies();
     const [login, setLogin] = useState("");
     const [senha, setSenha] = useState("");
-    const [formSubmit, setFormSubmit] = useState({
-        login: "",
-        senha: ""
-    });
+    let logged = false;
 
-    const loginForm = async (e) => {
-        e.preventDefault();
-        console.log("olamundo");
-        const response = await api.post('/Usuario/LogIn', { login, senha });
-        return response.json();
+    cookies.set('logged', logged);
+
+    const loginForm = (e) => {
+        api.post(`/Usuario/LogIn?login=${login}&senha=${senha}`)
+            .then(response => {
+                cookies.set("login", login);
+                cookies.set("senha", senha);
+                cookies.set("token", response?.data?.token);
+                cookies.set("logged", true);
+
+                window.location.href = '/home';
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     return (

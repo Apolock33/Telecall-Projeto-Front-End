@@ -3,12 +3,15 @@ import { Nav, Image, Container, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import imgLogo from '../../assets/img/Logo - Horizontal - Sem frase.png';
 import { IconButton } from '@mui/material';
-import { FiMenu } from 'react-icons/fi'
+import { FiMenu } from 'react-icons/fi';
 import { MdWbSunny } from 'react-icons/md';
-import { HiUserCircle } from 'react-icons/hi'
-import style from '../../assets/css/navBar.module.css'
+import { HiUserCircle } from 'react-icons/hi';
+import style from '../../assets/css/navBar.module.css';
+import { useCookies } from 'react-cookie';
 
 const Menu = ({ onClick, hasSideBar }) => {
+
+    const [cookies] = useCookies("");
 
     return (
         <React.Fragment>
@@ -22,12 +25,12 @@ const Menu = ({ onClick, hasSideBar }) => {
                             :
                             null
                         }
-                        <Navbar.Brand href={'/'}>
+                        <Navbar.Brand href={'/login'} className={style.icons}>
                             <Image src={imgLogo} width={150} />
                         </Navbar.Brand>
                     </Nav.Link>
                     <Nav>
-                        <NavLink to={'/'}>
+                        <NavLink>
                             <IconButton size='medium'>
                                 <MdWbSunny size={30} color='#0C4B77' />
                             </IconButton>
