@@ -15,7 +15,7 @@ const Menu = ({ onClick, hasSideBar }) => {
 
     return (
         <React.Fragment>
-            <Navbar className={"navbar navbar-expand-lg lg-12 bg-light mx-4 rounded-4"} style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 0px 10px", top: '1.5rem' }} fixed="top">
+            <Navbar className={"navbar navbar-expand-lg bg-light mx-4 rounded-4"} style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 0px 10px", top: '1.5rem' }} fixed="top">
                 <Container fluid >
                     <Nav.Link className={style.logo}>
                         {(hasSideBar) ?
@@ -25,7 +25,7 @@ const Menu = ({ onClick, hasSideBar }) => {
                             :
                             null
                         }
-                        <Navbar.Brand href={'/login'} className={style.icons}>
+                        <Navbar.Brand onClick={() => window.location.href = '/'} className={style.icons}>
                             <Image src={imgLogo} width={150} />
                         </Navbar.Brand>
                     </Nav.Link>

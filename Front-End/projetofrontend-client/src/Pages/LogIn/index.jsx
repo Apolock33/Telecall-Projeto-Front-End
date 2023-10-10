@@ -4,25 +4,20 @@ import { Form, FormGroup, FormLabel, FormControl, Image } from 'react-bootstrap'
 import imgLogo from '../../assets/img/Logo - Horizontal - Sem frase.png';
 import { Link } from 'react-router-dom';
 import ButtonGeral from '../../components/ButtonGeral';
-import { Cookies } from 'react-cookie';
 import api from '../../Services/api';
 
 const LogIn = () => {
-    let cookies = new Cookies();
     const [login, setLogin] = useState("");
     const [senha, setSenha] = useState("");
-    let logged = false;
 
-    cookies.set('logged', logged);
+    localStorage.setItem("islogged", false);
 
     const loginForm = (e) => {
         api.post(`/Usuario/LogIn?login=${login}&senha=${senha}`)
-            .then(response => {
-                cookies.set("login", login);
-                cookies.set("senha", senha);
-                cookies.set("token", response?.data?.token);
-                cookies.set("logged", true);
-
+            .then(() => {
+                localStorage.setItem("login", `${login}`);
+                localStorage.setItem("senha", senha);
+                localStorage.setItem("islogged", true);
                 window.location.href = '/home';
             })
             .catch(error => {
@@ -61,8 +56,11 @@ const LogIn = () => {
                             <FormGroup className={style.submit}>
                                 <ButtonGeral
                                     type={'submit'}
-                                    variant={'primary'} className={style.ButtonGeral} content={'Entrar'}
+                                    variant={'primary'} className={style.ButtonGeral} children={'Entrar'}
                                 />
+                                <p>Não possui cadastro?
+                                    <Link to={'/registro'} > Clique Aqui</Link>
+                                </p>
                             </FormGroup>
                         </Form>
                     </div>

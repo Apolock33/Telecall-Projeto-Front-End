@@ -1,0 +1,48 @@
+@media(max-width:768px) {
+    .registerFormContainer{
+        padding: 3rem;
+    }
+
+    .imgRegistroForm {
+        background-image: none;
+    }
+
+    .formRegisterSection {
+        border-radius: 2rem;
+        background-color: #fff;
+        padding: 3rem;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .imgForm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem;
+    }
+
+    .formRegister input {
+        min-width: 35rem;
+        margin-bottom: 0.5rem;
+        padding:0.7rem;
+    }
+
+    .submit {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .submit button {
+        margin: 1rem 0;
+        min-width: 35rem;
+        font-size: 1.2rem;
+    }
+
+    .submitIcon{
+        width: 10rem;
+    }
+}
