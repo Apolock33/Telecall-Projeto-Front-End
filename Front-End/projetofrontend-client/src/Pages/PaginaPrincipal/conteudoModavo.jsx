@@ -42,9 +42,13 @@ const ConteudoModavo = () => {
         }
     ];
 
+    localStorage.setItem('login', '');
+    localStorage.setItem('senha', '');
+    localStorage.setItem('islogged', false);
+
     return (
         <React.Fragment>
-            <ButtonScrollTop/>
+            <ButtonScrollTop />
             <section id='intro'>
                 <div className={style.displayCover}>
                     <div className={style.modavoLogo}>

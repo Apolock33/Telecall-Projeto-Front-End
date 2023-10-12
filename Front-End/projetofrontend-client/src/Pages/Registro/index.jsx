@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Form, FormGroup, FormLabel, FormControl, Image } from 'react-bootstrap';
+import { Form, FormGroup, FormLabel, FormControl, Image, FormSelect } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import style from '../../assets/css/registro.module.css'
 import ButtonGeral from '../../components/ButtonGeral';
 import api from '../../Services/api';
-import Menu from '../../components/Menu';
 import imgLogo from '../../assets/img/Logo - Horizontal - Sem frase.png';
+import InputMask from 'react-input-mask';
 import { FiArrowRight } from 'react-icons/fi';
 
 const Registro = () => {
@@ -16,9 +16,15 @@ const Registro = () => {
         documento: '',
         celular: '',
         fixo: '',
-        nascimento: '',
-        nomeMaterno: ''
+        dataNascimento: '',
+        nomeMaterno: '',
+        login: '',
+        senha: ''
     });
+
+    localStorage.setItem('login', '');
+    localStorage.setItem('senha', '');
+    localStorage.setItem('islogged', false);
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -27,18 +33,20 @@ const Registro = () => {
         });
     }
 
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        console.log(form.checkValidity())
-        event.preventDefault();
+    const handleSubmit = (e) => {
+        const form = e.currentTarget;
+        e.preventDefault();
         if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
+            e.preventDefault();
+            e.stopPropagation();
         } else {
             setValidated(true);
             if (validated) {
                 api.post('/Usuario/Registrar', formRegistro)
-                    .then((response) => {
+                    .then(() => {
+                        localStorage.setItem('login', formRegistro.login);
+                        localStorage.setItem('senha', formRegistro.senha);
+                        localStorage.setItem('islogged', true);
                         window.location.href = '/home'
                     }).catch((error) => {
                         console.log(error);
@@ -46,7 +54,6 @@ const Registro = () => {
             }
         }
     }
-
 
     return (
         <React.Fragment>
@@ -63,31 +70,42 @@ const Registro = () => {
                                     Nome
                                 </FormLabel>
                                 <FormControl
+                                    size={'md'}
                                     required
                                     name={'nome'}
                                     id={'nome'}
                                     type='text'
                                     onChange={handleChange}
                                     isValid={(formRegistro.nome.length > 0 && (formRegistro.nome.length >= 15 && formRegistro.nome.length <= 60)) ? true : false}
-                                    isInvalid={(formRegistro.nome.length > 0 && formRegistro.nome.length > 60) ? true : false}  />
+                                    isInvalid={(formRegistro.nome.length > 0 && formRegistro.nome.length > 60) ? true : false} />
+                                {(formRegistro.nome.length > 0 && formRegistro.nome.length < 15) ? <Form.Label style={{ marginTop: '1rem' }}>O campo nome deve ter ao menos 15 caracteres</Form.Label> : null}
+                                <Form.Control.Feedback type="invalid">
+                                    O campo nome só pode ter até 60 caracteres.
+                                </Form.Control.Feedback>
                             </FormGroup>
                             <FormGroup>
                                 <FormLabel htmlFor={'sexo'}>
                                     Sexo
                                 </FormLabel>
-                                <FormControl
+                                <FormSelect
+                                    onChange={handleChange}
+                                    size={'md'}
                                     required
                                     name={'sexo'}
-                                    id={'sexo'}
-                                    type='text'
-                                    onChange={handleChange} />
+                                    id={'sexo'}>
+                                    <option>Selecione...</option>
+                                    <option value='M'>Masculino</option>
+                                    <option value='F'>Feminino</option>
+                                </FormSelect>
                             </FormGroup>
                             <FormGroup>
                                 <FormLabel
                                     htmlFor={'documento'}>
                                     Documento
                                 </FormLabel>
-                                <FormControl
+                                <InputMask
+                                    className='form-control'
+                                    mask={'999.999.999-99'}
                                     required
                                     name={'documento'}
                                     id={'documento'}
@@ -99,7 +117,10 @@ const Registro = () => {
                                     htmlFor={'celular'}>
                                     Celular
                                 </FormLabel>
-                                <FormControl
+                                <InputMask
+                                    className='form-control'
+                                    mask={'(99) 99999-9999'}
+                                    size={'md'}
                                     required
                                     name={'celular'}
                                     id={'celular'}
@@ -111,7 +132,9 @@ const Registro = () => {
                                     htmlFor={'fixo'}>
                                     Fixo
                                 </FormLabel>
-                                <FormControl
+                                <InputMask
+                                    className='form-control'
+                                    mask={'(99) 9999-9999'}
                                     required
                                     name={'fixo'}
                                     id={'fixo'}
@@ -120,13 +143,14 @@ const Registro = () => {
                             </FormGroup>
                             <FormGroup>
                                 <FormLabel
-                                    htmlFor={'nascimento'}>
+                                    htmlFor={'dataNascimento'}>
                                     Data de Nascimento
                                 </FormLabel>
                                 <FormControl
+                                    size={'md'}
                                     required
-                                    name={'nascimento'}
-                                    id={'nascimento'}
+                                    name={'dataNascimento'}
+                                    id={'dataNascimento'}
                                     type='date'
                                     onChange={handleChange} />
                             </FormGroup>
@@ -136,6 +160,7 @@ const Registro = () => {
                                     Nome Materno
                                 </FormLabel>
                                 <FormControl
+                                    size={'md'}
                                     required
                                     name={'nomeMaterno'}
                                     id={'nomeMaterno'}
@@ -148,22 +173,51 @@ const Registro = () => {
                                     Log In
                                 </FormLabel>
                                 <FormControl
+                                    maxLength={6}
+                                    size={'md'}
                                     required
                                     name={'login'}
                                     id={'logIn'}
                                     type='text'
-                                    onChange={handleChange} />
+                                    onChange={handleChange}
+                                    isValid={(formRegistro.login.length == 6) ? true : false} />
                             </FormGroup>
                             <FormGroup className={style.password}>
                                 <FormLabel htmlFor={'senha'}>
                                     Senha
                                 </FormLabel>
                                 <FormControl
+                                    size={'md'}
                                     required
                                     name={'senha'}
                                     id={'senha'}
                                     type='password'
-                                    onChange={handleChange} />
+                                    onChange={handleChange}
+                                    isValid={(formRegistro.senha.length > 0 && formRegistro.senha.length >= 8) ? true : false}
+                                    isInvalid={(formRegistro.senha.length > 0 && formRegistro.senha.length < 8) ? true : false} />
+                                <Form.Control.Feedback type="invalid">
+                                    A senha deve conter:
+                                    <ul>
+                                        <li>Ao menos 8 Caracteres</li>
+                                        <li>Ao menos 8 Caracteres Alfabéticos</li>
+                                        <li>Numeros</li>
+                                        <li>Letras Maíusculas</li>
+                                        <li>Símbolos</li>
+                                    </ul>
+                                </Form.Control.Feedback>
+                            </FormGroup>
+                            <FormGroup className={style.password}>
+                                <FormLabel htmlFor={'senha'}>
+                                    Confirmação de Senha
+                                </FormLabel>
+                                <FormControl
+                                    size={'md'}
+                                    required
+                                    id={'senhaConfirm'}
+                                    type='password' />
+                                <Form.Control.Feedback type="invalid">
+                                    A senha deve coincidir com a confirmação
+                                </Form.Control.Feedback>
                             </FormGroup>
                             <FormGroup className={style.submit}>
                                 <ButtonGeral

@@ -7,11 +7,8 @@ import { FiMenu } from 'react-icons/fi';
 import { MdWbSunny } from 'react-icons/md';
 import { HiUserCircle } from 'react-icons/hi';
 import style from '../../assets/css/navBar.module.css';
-import { useCookies } from 'react-cookie';
 
 const Menu = ({ onClick, hasSideBar }) => {
-
-    const [cookies] = useCookies("");
 
     return (
         <React.Fragment>

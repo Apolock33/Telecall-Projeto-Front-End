@@ -9,10 +9,12 @@ import api from '../../Services/api';
 const LogIn = () => {
     const [login, setLogin] = useState("");
     const [senha, setSenha] = useState("");
-
+    localStorage.setItem("login", '');
+    localStorage.setItem("senha", '');
     localStorage.setItem("islogged", false);
 
     const loginForm = (e) => {
+        e.preventDefault();
         api.post(`/Usuario/LogIn?login=${login}&senha=${senha}`)
             .then(() => {
                 localStorage.setItem("login", `${login}`);

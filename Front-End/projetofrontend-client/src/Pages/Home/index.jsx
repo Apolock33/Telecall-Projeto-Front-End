@@ -6,7 +6,9 @@ import { verifyLogin } from '../../Services/cookiesServices';
 const Home = () => {
     const [openSideBar, setOpenSideBar] = useState(false);
 
-    verifyLogin(localStorage.getItem("username"));
+    var loginVerificado = localStorage.getItem('islogged');
+
+    verifyLogin(loginVerificado);
 
     return (
         <React.Fragment>
@@ -14,7 +16,7 @@ const Home = () => {
             <Sidebar
                 show={openSideBar}
                 close={() => setOpenSideBar(!openSideBar)}>
-                    <h1>Ola mundo</h1>
+                <h1>Ola mundo</h1>
             </Sidebar>
         </React.Fragment>
     );

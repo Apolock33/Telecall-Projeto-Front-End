@@ -23,10 +23,8 @@
         margin: 2rem;
     }
 
-    .formRegister input {
-        min-width: 35rem;
-        margin-bottom: 0.5rem;
-        padding:0.7rem;
+    .formRegister div{
+        margin-bottom: 2rem;
     }
 
     .submit {
