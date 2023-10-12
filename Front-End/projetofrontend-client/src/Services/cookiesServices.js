@@ -1,10 +1,7 @@
 function verifyLogin(cookieIsLogged) {
-    if (cookieIsLogged == false) {
-        setTimeout(() => {
-            console.log('Usuario não Logado');
-        }, 3000);
+    if (!cookieIsLogged) {
+        window.location.href = '/login';
     }
 }
-
 
 export { verifyLogin };
