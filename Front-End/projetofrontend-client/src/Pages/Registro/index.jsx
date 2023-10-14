@@ -61,9 +61,9 @@ const Registro = () => {
                 <div className={style.imgRegistroForm}>
                     <div className={style.formRegisterSection}>
                         <Form onSubmit={handleSubmit} className={style.formRegister}>
-                            <div className={style.imgForm}>
+                            <Link to={'/'} className={style.imgForm}>
                                 <Image src={imgLogo} width={400} />
-                            </div>
+                            </Link>
                             <FormGroup>
                                 <FormLabel
                                     htmlFor={'nome'}>
@@ -225,11 +225,10 @@ const Registro = () => {
                                     variant={'primary'}
                                     className={style.ButtonGeral}>
                                     <FiArrowRight
-                                        size={50}
+                                        size={30}
                                         className={style.submitIcon} />
                                 </ButtonGeral>
-                                <p>Já possui cadastro?
-                                    <Link to={'/login'}> Clique Aqui</Link>
+                                <p>Já possui cadastro? <Link to={'/login'}>Clique Aqui</Link>
                                 </p>
                             </FormGroup>
                         </Form>

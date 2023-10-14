@@ -16,7 +16,7 @@ namespace ProejtoFrontEnd.Repositories
         {
             var resposta = false;
 
-            var loginValido = _db.Usuarios.Where(u=>u.Login == logIn);
+            var loginValido = _db.Usuarios.Where(u=>u.Login == logIn).FirstOrDefault();
 
             if (loginValido != null)
             {
@@ -30,9 +30,9 @@ namespace ProejtoFrontEnd.Repositories
         {
             var resposta = false;
 
-            var senhaValida = _db.Usuarios.Where(u => u.Senha == senha);
+            var senhaValida = _db.Usuarios.Where(u => u.Senha == senha).FirstOrDefault();
 
-            if (senhaValida != null)
+            if (senhaValida!= null)
             {
                 resposta = true;
             }

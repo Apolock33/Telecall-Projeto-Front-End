@@ -189,7 +189,7 @@ namespace ProejtoFrontEnd.Services
                 }
                 else
                 {
-                    resposta.Success = true;
+                    resposta.Success = false;
                     resposta.StatusCode = HttpStatusCode.BadRequest;
                     resposta.Token = "";
                     resposta.Message = "Falha ao gerar token!";
@@ -199,7 +199,7 @@ namespace ProejtoFrontEnd.Services
             }
             else
             {
-                resposta.Success = true;
+                resposta.Success = false;
                 resposta.StatusCode = HttpStatusCode.BadRequest;
                 resposta.Token = "";
                 resposta.Message = "Falha ao gerar token!";

@@ -5,6 +5,7 @@ import imgLogo from '../../assets/img/Logo - Horizontal - Sem frase.png';
 import { Link } from 'react-router-dom';
 import ButtonGeral from '../../components/ButtonGeral';
 import api from '../../Services/api';
+import { useToastAlert } from '../../components/Alerts';
 
 const LogIn = () => {
     const [login, setLogin] = useState("");
@@ -16,11 +17,22 @@ const LogIn = () => {
     const loginForm = (e) => {
         e.preventDefault();
         api.post(`/Usuario/LogIn?login=${login}&senha=${senha}`)
-            .then(() => {
-                localStorage.setItem("login", `${login}`);
-                localStorage.setItem("senha", senha);
-                localStorage.setItem("islogged", true);
-                window.location.href = '/home';
+            .then((response) => {
+                console.log(response);
+                if (!response?.data?.success) {
+                    useToastAlert({
+                        texto: 'Informações de Log In erradas ou inexistentes.',
+                        icon: 'error',
+                        hasConfirmButton: false,
+                        timer: 5000,
+                        hasProgressBar: true
+                    });
+                } else {
+                    localStorage.setItem("login", `${login}`);
+                    localStorage.setItem("senha", senha);
+                    localStorage.setItem("islogged", true);
+                    window.location.href = '/home';
+                }
             })
             .catch(error => {
                 console.log(error);
@@ -47,13 +59,6 @@ const LogIn = () => {
                                     Senha
                                 </FormLabel>
                                 <FormControl id={'senha'} type='password' value={senha} onChange={(e) => setSenha(e.target.value)} />
-                            </FormGroup>
-                            <FormGroup className={style.extras}>
-                                <Form.Check
-                                    type={'checkbox'}
-                                    label={'Manter Log In'}
-                                />
-                                <Link>Esqueci Minha Senha</Link>
                             </FormGroup>
                             <FormGroup className={style.submit}>
                                 <ButtonGeral
