@@ -19,7 +19,6 @@ namespace ProejtoFrontEnd.Controllers
             _logService = logService;
         }
 
-        [Authorize]
         [HttpGet("ListarLogs")]
         public async Task<IActionResult> ListarLogs()
         {
@@ -48,7 +47,7 @@ namespace ProejtoFrontEnd.Controllers
         }
 
         [HttpPost("CriarLogs")]
-        public async Task<IActionResult> CriarLogs(Log log)
+        public async Task<IActionResult> CriarLogs(LogDTO log)
         {
             var resposta = new Resposta<LogDTO>();
 

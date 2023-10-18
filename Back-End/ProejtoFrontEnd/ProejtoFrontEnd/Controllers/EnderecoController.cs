@@ -20,7 +20,7 @@ namespace ProejtoFrontEnd.Controllers
         }
 
         [HttpPost("CadastrarEndereco")]
-        public async Task<IActionResult> CadastrarEndereco(Endereco endereco)
+        public async Task<IActionResult> CadastrarEndereco(EnderecoDTO endereco)
         {
             var resposta = new Resposta<EnderecoDTO>();
 
@@ -28,8 +28,6 @@ namespace ProejtoFrontEnd.Controllers
 
             try
             {
-                //endereco.UsuarioId = Guid.Parse(@TempData["UsuarioId"].ToString().Replace("{", "").Replace("}", ""));
-
                 var cadastrarEndereco = await _enderecoService.PostEndereco(endereco);
 
                 if (cadastrarEndereco != null)
@@ -62,7 +60,6 @@ namespace ProejtoFrontEnd.Controllers
             }
         }
 
-        [Authorize]
         [HttpGet("ListarEnderecos")]
         public async Task<IActionResult> ListarEnderecos()
         {
@@ -118,7 +115,7 @@ namespace ProejtoFrontEnd.Controllers
         }
 
         [HttpPut("AtualizarEndereco")]
-        public async Task<IActionResult> AtualizarEndereco(Endereco endereco)
+        public async Task<IActionResult> AtualizarEndereco(EnderecoDTO endereco)
         {
             var resposta = new Resposta<EnderecoDTO>();
 
@@ -127,6 +124,8 @@ namespace ProejtoFrontEnd.Controllers
             try
             {
                 var atualizarEnd = await _enderecoService.PutEndereco(endereco);
+
+                listaEnd.Add(atualizarEnd);
 
                 resposta.Success = true;
                 resposta.StatusCode = HttpStatusCode.OK;

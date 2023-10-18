@@ -26,5 +26,6 @@ namespace ProjetoFrontEnd_BackEnd.Models
         public string? Token { get; set; }
         [DefaultValue(null)]
         public string? Message { get; set; }
+        public Guid? UsuarioId { get; set; }
     }
 }

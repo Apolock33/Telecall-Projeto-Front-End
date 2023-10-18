@@ -15,5 +15,6 @@ namespace ProjetoFrontEnd_BackEnd.Models
         public string? Cidade { get; set; }
         public string? Estado { get; set; }
         public Guid? UsuarioId { get; set; }
+        public Usuario? Usuario { get; set; }
     }
 }

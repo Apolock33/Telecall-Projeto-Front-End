@@ -15,9 +15,11 @@ namespace ProejtoFrontEnd.Services
             _usuarioRepository = usuarioRepository;
         }
 
-        public async Task<UsuarioDTO> PostUsuario(Usuario usuario)
+        public async Task<UsuarioDTO> PostUsuario(UsuarioDTO usuario)
         {
             var usuarioDto = new UsuarioDTO();
+
+            var usuarioEntity = new Usuario();
 
             var usuarioExiste = await _usuarioRepository.Find(u => u.Login == usuario.Login);
 
@@ -27,21 +29,24 @@ namespace ProejtoFrontEnd.Services
                 usuario.CriadoEm = DateTime.UtcNow;
                 usuario.CodigoDeValidacao = GerarCodigoDeValidacao();
 
-                var postUsuario = await _usuarioRepository.Add(usuario);
+                usuarioEntity.UsuarioId = usuario.UsuarioId;
+                usuarioEntity.Nome = usuario.Nome;
+                usuarioEntity.Sexo = usuario.Sexo;
+                usuarioEntity.Documento = usuario.Documento;
+                usuarioEntity.Celular = usuario.Celular;
+                usuarioEntity.Fixo = usuario.Fixo;
+                usuarioEntity.NomeMaterno = usuario.NomeMaterno;
+                usuarioEntity.DataNascimento = usuario.DataNascimento;
+                usuarioEntity.Login = usuario.Login;
+                usuarioEntity.Senha = usuario.Senha;
+                usuarioEntity.Tipo = usuario.Tipo;
+                usuarioEntity.CodigoDeValidacao = usuario.CodigoDeValidacao;
+                usuarioEntity.CriadoEm = usuario.CriadoEm;
+                usuarioEntity.Endereco = null;
 
-                usuarioDto.UsuarioId = usuario.UsuarioId;
-                usuarioDto.Nome = usuario.Nome;
-                usuarioDto.Sexo = usuario.Sexo;
-                usuarioDto.Documento = usuario.Documento;
-                usuarioDto.Celular = usuario.Celular;
-                usuarioDto.Fixo = usuario.Fixo;
-                usuarioDto.NomeMaterno = usuario.NomeMaterno;
-                usuarioDto.DataNascimento = usuario.DataNascimento;
-                usuarioDto.Login = usuario.Login;
-                usuarioDto.Senha = usuario.Senha;
-                usuarioDto.Tipo = usuario.Tipo;
-                usuarioDto.CodigoDeValidacao = usuario.CodigoDeValidacao;
-                usuarioDto.CriadoEm = usuario.CriadoEm;
+                var postUsuario = await _usuarioRepository.Add(usuarioEntity);
+
+                usuarioDto = usuario;
             }
 
             return usuarioDto;
@@ -107,7 +112,7 @@ namespace ProejtoFrontEnd.Services
             return lista;
         }
 
-        public async Task<UsuarioDTO> PutUsuario(Usuario usuario)
+        public async Task<UsuarioDTO> PutUsuario(UsuarioDTO usuario)
         {
             var usuarioDto = new UsuarioDTO();
 
@@ -182,10 +187,13 @@ namespace ProejtoFrontEnd.Services
                 {
                     var token = TokenService.GenerateToken(new Usuario());
 
+                    var getUser = await _usuarioRepository.RetornarEntidade(logIn);
+
                     resposta.Success = true;
                     resposta.StatusCode = HttpStatusCode.Accepted;
                     resposta.Token = token.ToString();
                     resposta.Message = "Token Gerado Com Sucesso";
+                    resposta.UsuarioId = getUser.UsuarioId;
                 }
                 else
                 {

@@ -36,11 +36,20 @@ namespace ProejtoFrontEnd.Services
             return listaLogDto;
         }
 
-        public async Task<LogDTO> PostLog(Log log)
+        public async Task<LogDTO> PostLog(LogDTO log)
         {
             var logDto = new LogDTO();
 
-            var criarLog = await _logRepository.Add(log);
+            var logEntity = new Log();
+
+            logEntity.Id = log.Id;
+            logEntity.TipoDeErro = log.TipoDeErro;
+            logEntity.Mensagem = log.Mensagem;
+            logEntity.DetalhamentoDeErro = log?.DetalhamentoDeErro;
+            logEntity.CriadoEm = log.CriadoEm;
+            logEntity.UsuarioId = log.UsuarioId;
+
+            var criarLog = await _logRepository.Add(logEntity);
 
             logDto.Id = log.Id;
             logDto.TipoDeErro = log.TipoDeErro;

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ProejtoFrontEnd.Models.DTOs;
+using ProejtoFrontEnd.Models.Enums;
 using ProejtoFrontEnd.Services;
 using ProejtoFrontEnd.Services.Interfaces;
 using ProjetoFrontEnd_BackEnd.DTOs;
@@ -13,9 +15,11 @@ namespace ProejtoFrontEnd.Controllers
     public class UsuarioController : Controller
     {
         private readonly IUsuarioService _usuarioService;
-        public UsuarioController(IUsuarioService usuarioService)
+        private readonly ILogService _logService;
+        public UsuarioController(IUsuarioService usuarioService, ILogService logService)
         {
             _usuarioService = usuarioService;
+            _logService = logService;
         }
 
         [HttpPost("LogIn")]
@@ -23,9 +27,21 @@ namespace ProejtoFrontEnd.Controllers
         {
             var resposta = new RespostaUsuario();
 
+            var logDto = new LogDTO();
+
             try
             {
                 var logIn = await _usuarioService.LogIn(login, senha);
+
+
+                logDto.Id = Guid.NewGuid();
+                logDto.UsuarioId = logIn.UsuarioId;
+                logDto.TipoDeErro = (logIn.StatusCode == HttpStatusCode.Accepted) ? TipoDeErro.SucessoLogin : TipoDeErro.ErroLogin;
+                logDto.Mensagem = (logIn.StatusCode == HttpStatusCode.Accepted) ? "Log In Realizado" : "Falha ao logar";
+                logDto.DetalhamentoDeErro = (logIn.StatusCode == HttpStatusCode.Accepted) ? "" : "Informações de Log In Incorretas";
+                logDto.CriadoEm = DateTime.Now;
+
+                var createLog = await _logService.PostLog(logDto);
 
                 return Ok(logIn);
             }
@@ -41,7 +57,7 @@ namespace ProejtoFrontEnd.Controllers
         }
 
         [HttpPost("Registrar")]
-        public async Task<IActionResult> Registrar(Usuario usuario)
+        public async Task<IActionResult> Registrar(UsuarioDTO usuario)
         {
             var resposta = new Resposta<UsuarioDTO>();
 
@@ -81,7 +97,6 @@ namespace ProejtoFrontEnd.Controllers
             }
         }
 
-        [Authorize]
         [HttpGet("ListarUsuarios")]
         public async Task<IActionResult> ListarUsuarios()
         {
@@ -109,7 +124,6 @@ namespace ProejtoFrontEnd.Controllers
             }
         }
 
-        [Authorize]
         [HttpGet("ObterUsuarioById")]
         public async Task<IActionResult> ObterUsuarioPorId(Guid id)
         {
@@ -146,9 +160,8 @@ namespace ProejtoFrontEnd.Controllers
             }
         }
 
-        [Authorize]
         [HttpPut("AtualizarUsuario")]
-        public async Task<IActionResult> AtualizarCliente(Usuario usuario)
+        public async Task<IActionResult> AtualizarUsuario(UsuarioDTO usuario)
         {
             var resposta = new Resposta<UsuarioDTO>();
 
@@ -180,7 +193,6 @@ namespace ProejtoFrontEnd.Controllers
             }
         }
 
-        [Authorize]
         [HttpDelete("DeletarUsuario")]
         public async Task<IActionResult> DeletarCliente(Guid id)
         {

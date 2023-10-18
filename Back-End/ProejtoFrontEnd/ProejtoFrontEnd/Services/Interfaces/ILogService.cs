@@ -5,7 +5,7 @@ namespace ProejtoFrontEnd.Services.Interfaces
 {
     public interface ILogService
     {
-        Task<LogDTO> PostLog(Log log);
+        Task<LogDTO> PostLog(LogDTO log);
         Task<IEnumerable<LogDTO>> GetAllLogs();
     }
 }

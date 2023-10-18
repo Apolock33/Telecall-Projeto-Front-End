@@ -16,18 +16,28 @@ namespace ProejtoFrontEnd.Services
             _enderecoRepository = enderecoRepository;
         }
 
-        public async Task<EnderecoDTO> PostEndereco(Endereco endereco)
+        public async Task<EnderecoDTO> PostEndereco(EnderecoDTO endereco)
         {
             var enderecoDto = new EnderecoDTO();
 
+            var enderecoEntity = new Endereco();
+
             endereco.EnderecoId = Guid.NewGuid();
-            endereco.UsuarioId = Guid.NewGuid();
 
             var getEnd = await _enderecoRepository.Find(e => e.Rua == endereco.Rua);
 
             if (!getEnd.Any())
             {
-                var postEnd = await _enderecoRepository.Add(endereco);
+                enderecoEntity.EnderecoId = endereco.EnderecoId;
+                enderecoEntity.UsuarioId = endereco.UsuarioId;
+                enderecoEntity.Rua = endereco.Rua;
+                enderecoEntity.Numero = endereco.Numero;
+                enderecoEntity.Complemento = endereco.Complemento;
+                enderecoEntity.Bairro = endereco.Bairro;
+                enderecoEntity.Cidade = endereco.Cidade;
+                enderecoEntity.Estado = endereco.Estado;
+
+                var postEnd = await _enderecoRepository.Add(enderecoEntity);
 
                 enderecoDto.EnderecoId = endereco.EnderecoId;
                 enderecoDto.UsuarioId = endereco.UsuarioId;
@@ -97,7 +107,7 @@ namespace ProejtoFrontEnd.Services
             return listaEndereco.AsEnumerable();
         }
 
-        public async Task<EnderecoDTO> PutEndereco(Endereco endereco)
+        public async Task<EnderecoDTO> PutEndereco(EnderecoDTO endereco)
         {
             var enderecoDto = new EnderecoDTO();
 

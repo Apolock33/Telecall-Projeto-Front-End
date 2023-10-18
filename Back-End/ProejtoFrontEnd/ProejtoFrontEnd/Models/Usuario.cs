@@ -30,5 +30,7 @@ namespace ProjetoFrontEnd_BackEnd.Models
         public string? CodigoDeValidacao { get; set; }
         [DataType(DataType.DateTime)]
         public DateTime CriadoEm { get; set; }
+
+        public Endereco? Endereco { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ProjetoFrontEnd_BackEnd.Models;
+﻿using ProjetoFrontEnd_BackEnd.DTOs;
+using ProjetoFrontEnd_BackEnd.Models;
 
 namespace ProejtoFrontEnd.Repositories.Interfaces
 {
@@ -6,5 +7,6 @@ namespace ProejtoFrontEnd.Repositories.Interfaces
     {
         Task<bool> ValidarLogin(string logIn);
         Task<bool> ValidarSenha(string senha);
+        Task<UsuarioDTO> RetornarEntidade(string dado);
     }
 }
