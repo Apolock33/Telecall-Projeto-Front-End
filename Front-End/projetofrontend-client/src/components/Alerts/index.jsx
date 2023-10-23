@@ -12,7 +12,9 @@ const useToastAlert = ({ texto, icon, hasConfirmButton, timer, hasProgressBar })
         didOpen: (toast) => {
             toast.addEventListener('mouseenter', Swal.stopTimer)
             toast.addEventListener('mouseleave', Swal.resumeTimer)
-            toast.addEventListener('click', () => { Swal.close() })
+            toast.addEventListener('click', () => { 
+                Swal.close();
+            })
         }
     })
 

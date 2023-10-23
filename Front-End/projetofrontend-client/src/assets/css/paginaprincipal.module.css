@@ -1,540 +1,131 @@
-.displayCover {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 7rem;
-    padding: 3rem 2rem;
-}
-
-.modavoLogo img {
-    margin-bottom: 1rem;
-}
-
-.modavoLogo div {
-    max-width: 45rem;
-}
-
-.modavoLogo div h5 {
-    color: #0c6fb6;
-}
-
-.modavoLogo div h6 {
-    font-family: 'Roboto', sans-serif;
-    font-style: italic;
-}
-
-.modavoLogo div p {
-    text-align: start;
-    font-size: 1.0rem;
-}
-
-.buttonKnowMore {
-    background-color: #0c6fb6;
-    border: 1px solid #0c6fb6;
-}
-
-.arrow {
-    margin-left: 1rem;
-}
-
-.solucoesSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.iconsDisplay {
-    display: flex;
-}
-
-.iconsContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 3rem;
-}
-
-.iconsContainer div {
-    margin: 0.5rem 0;
-}
-
-.iconsBg {
-    background-color: #0C4B77;
-    padding: 2rem;
-    border-radius: 5rem;
-}
-
-.text {
-    margin-bottom: 3rem;
-}
-
-.tfa {
-    margin-top: 3rem;
-}
-
-.sectionTitle {
-    display: flex;
-    justify-content: center;
-
-}
-
-.sectionDisplay {
-    display: flex;
-    justify-content: space-between;
-    padding: 3rem;
-}
-
-.tfaFSec div ul li {
-    font-size: 1.0rem;
-}
-
-.tfaFSec div ul li strong {
-    font-size: 4.0rem;
-    font-weight: 800;
-    color: #0C4B77;
-    margin-right: 0.5rem;
-}
-
-.tfaSSec {
-    max-width: 40rem;
-    font-size: 1.0rem;
-}
-
-.numeroMascara {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.sectionTitleNM {
-    display: flex;
-    justify-content: center;
-}
-
-.sectionDisplayNM {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3rem;
-}
-
-.nMFSec {
-    max-width: 40rem;
-}
-
-.nMFSec p,
-.nMFSec ul li,
-.nMSSec {
-    font-size: 1.0rem;
-}
-
-.nMFSec ul li strong,
-.nMSSec h5 {
-    font-weight: 600;
-    color: #0C4B77;
-}
-
-.nMSSec {
-    max-width: 40rem;
-}
-
-.nMTSec {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nMTSecContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 40rem;
-    font-size: 1.0rem;
-}
-
-.nMTSecContent ul li strong {
-    font-size: 1.0rem;
-    font-weight: 600;
-}
-
-.gVCTitle {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-}
-
-.gVCContent {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(100px, 1fr));
-    gap: 1rem;
-    padding: 3rem;
-    justify-content: center;
-    align-items: center;
-}
-
-.gVCQtSection {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
-
-.gVCQtSection div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.smsPTitle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.smsProgramavel {
-    padding: 3rem;
-}
-
-.smsPFSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.smsPFSection p {
-    text-align: center;
-}
-
-.smsPSSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.smsPSSection p{
-    margin-top: 2rem;
-}
-
-.smsPSSection div ul {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(100px, 1fr));
-    list-style: none;
-    text-align: center;
-    max-width: 40rem;
-}
-
-.smsPSSection div ul li strong {
-    font-weight: 800;
-    font-size: 3.5rem;
-    color: #0C4B77;
-}
-
-.smsPTSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-}
-
-@media(max-width:769px) {
-    .displayCover {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .modavoLogo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .modavoLogo div {
-        text-align: center;
-    }
-
-    .imgLogoModavo {
-        margin-bottom: 1rem;
-    }
-
-    .modavoLogo div h5 {
-        color: #0c6fb6;
-        text-align: center;
-    }
-
-    .modavoLogo div h6 {
-        font-family: 'Roboto', sans-serif;
-        font-style: italic;
-    }
-
-    .modavoLogo div p {
-        text-align: center;
-        padding: 1rem 3.5rem;
-    }
-
-    .imgCover {
-        display: none;
-    }
-
-    .solucoesSection {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .iconsDisplay {
-        display: grid;
-        grid-template-columns: 15rem 15rem;
-        gap: 5px;
-    }
-
-    .iconsContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .iconsBg {
+@media(max-width: 769px) {
+    .cover {
         background-color: #0C4B77;
-        padding: 2rem;
-        border-radius: 5rem;
     }
 
-    .iconsContainer div h4 {
-        text-align: center;
-    }
-
-    .sectionTitle {
+    .coverImg {
+        background-image: url('../img//registerImgForm1.jpg');
+        height: 60vh;
+        width: 100vw;
+        background-size: cover;
+        opacity: 20%;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 1rem;
     }
 
-    .sectionDisplay {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .tfaFSec h3 {
+    .textCover {
+        color: #fff;
+        font-size: 1.5rem;
+        position: absolute;
+        top: 25%;
+        left: 20%;
         text-align: center;
+        opacity: 100%;
+        z-index: 999;
     }
 
-    .tfaFSec div ul li {
-        font-size: 1.0rem;
-    }
-
-    .tfaFSec div ul li strong {
-        color: #0C4B77;
-        font-size: 2.0rem;
-        font-weight: 800;
-    }
-
-    .tfaSSec {
-        max-width: 30rem;
-    }
-
-    .tfaSSec div {
-        margin-top: 1rem;
-    }
-
-    .tfaSSec div ul {
-        font-size: 1.0rem;
-    }
-
-    .tfaSSec div h3 {
-        text-align: center;
-    }
-
-    .sectionTitleNM {
-        display: flex;
-        justify-content: center;
-    }
-
-    .sectionDisplayNM {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .nMFSec {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        max-width: 40rem;
-    }
-
-    .nMFSec p {
-        text-align: center;
-        font-size: 1.0rem;
-    }
-
-    .nMFSec ul li {
-        font-size: 1.0rem;
-    }
-
-    .nMFSec ul li strong {
-        font-size: 1.0rem;
+    .textCover h1 {
+        font-size: 3.5rem;
         font-weight: 600;
     }
 
-    .nMSSec {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        font-size: 1.0rem;
-        max-width: 40rem;
-        margin-top: 1rem;
+    .icon {
+        margin-bottom: 0.5rem;
     }
 
-    .nMSSec h3 {
+
+    .textCover button a {
+        color: #0C4B77;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.5rem;
+    }
+
+    .section1Text {
+        text-align: center;
+        margin: 2rem 0;
+        color: #0C4B77;
+        padding: 3rem;
+    }
+
+    .section1Text h1 {
+        font-weight: 700;
         margin-bottom: 2rem;
     }
 
-    .nMSSec h5 {
-        margin-bottom: 1rem;
-        color: #0C4B77;
-    }
-
-    .nMSSec p {
-        font-size: 1.0rem;
-    }
-
-    .nMTSec ul {
-        font-size: 1.0rem;
-    }
-
-    .nMTSec div ul li strong {
-        font-size: 1.0rem;
-        font-weight: 600;
-    }
-
-    .nMTSecContent {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .gVerifiedCalls {
-        padding: 0rem 1rem;
-    }
-
-    .gVerifiedCalls div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .gVCFSection {
-        margin-bottom: 1.5rem;
-    }
-
-    .gVCSSection {
-        text-align: center;
-        margin-bottom: 1.5rem;
-        font-size: 1.0rem;
-    }
-
-    .gVCSSection strong {
-        font-weight: 600;
-    }
-
-    .gVCSSection p {
-        padding: 0rem 1rem;
-    }
-
-    .gVCTSection {
-        margin-bottom: 1.5rem;
-        font-size: 1.0rem;
-    }
-
-    .gVCQSection {
-        font-size: 1.0rem;
-    }
-
-    .gVCQSection strong {
-        font-weight: 600;
-    }
-
-    .gVCQtSection {
+    .section1Text h3 {
+        font-style: italic;
         margin-bottom: 2rem;
     }
 
-    .smsProgramavel {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    .section1Text p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
     }
 
-    .smsPFSection {
+    .solutions {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 0 3rem;
+        padding-bottom: 5rem;
+    }
+
+    .solutions {
+        color: #0C4B77;
         text-align: center;
     }
 
-    .smsPSSection {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 0 3rem;
-        margin-top: 3rem;
-    }
-
-    .smsPSSection p {
-        text-align: center;
-    }
-
-    .smsPSSection p strong {
+    .solutions h1 {
         font-weight: 600;
     }
 
-    .smsPSSection div ul {
+    .solutions p {
+        padding: 0rem 3rem;
+        font-size: 1.2rem;
+    }
+
+    .solutionsCards {
         display: grid;
         grid-template-columns: repeat(2, minmax(100px, 1fr));
-        list-style: none;
-        text-align: center;
+        gap: 2rem;
     }
 
-    .smsPSSection div ul li strong {
-        font-weight: 800;
-        font-size: 3.5rem;
+    .solutionsCards a {
+        text-decoration: none;}
+
+    .nSIcons {
+        background-color: #fff;
         color: #0C4B77;
-    }
-
-    .smsPTSection {
+        width: 15rem;
+        height: 20rem;
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
-        margin-top: 2rem;
+        align-items: center;
+        text-align: center;
+        border-radius: 2rem;
+        border: 2px solid #0C4B77;
     }
 
-    .smsPTTitle {
-        margin-top: 2rem;
+    .nSIcons:hover{
+        color: #fff;
+        background-color: #0C4B77;
+        cursor: pointer;
     }
 
-    .smsPTlist {
-        margin-bottom: 2rem;
+    .nSIcons svg {
+        margin-top: 1rem;
+    }
+
+    .nSIcons h2 {
+        margin-top: 1rem;
+    }
+
+    .nSIcons p {
+        padding: 0;
+        font-size: 1rem;
+        margin-top: 1rem;
     }
 }
