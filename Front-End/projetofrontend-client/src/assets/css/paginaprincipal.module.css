@@ -1,131 +1,222 @@
-@media(max-width: 769px) {
-    .cover {
-        background-color: #0C4B77;
-    }
+.cover {
+    background-color: #0C4B77;
+}
 
-    .coverImg {
-        background-image: url('../img//registerImgForm1.jpg');
-        height: 60vh;
-        width: 100vw;
-        background-size: cover;
-        opacity: 20%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.coverImg {
+    background-image: url('../img//registerImgForm1.jpg');
+    height: 60vh;
+    width: 100%;
+    background-size: cover;
+    opacity: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .textCover {
-        color: #fff;
-        font-size: 1.5rem;
-        position: absolute;
-        top: 25%;
-        left: 20%;
-        text-align: center;
-        opacity: 100%;
-        z-index: 999;
-    }
+.textCover {
+    color: #fff;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    text-align: center;
+    opacity: 100%;
+    z-index: 999;
+}
 
-    .textCover h1 {
-        font-size: 3.5rem;
-        font-weight: 600;
-    }
+.textCover h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+}
 
-    .icon {
-        margin-bottom: 0.5rem;
-    }
+.icon {
+    margin-bottom: 0.5rem;
+}
 
 
-    .textCover button a {
-        color: #0C4B77;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 1.5rem;
-    }
+.textCover button a {
+    color: #0C4B77;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
 
-    .section1Text {
-        text-align: center;
-        margin: 2rem 0;
-        color: #0C4B77;
-        padding: 3rem;
-    }
+.section1Text {
+    text-align: center;
+    margin: 2rem 0;
+    color: #0C4B77;
+    padding: 3rem;
+}
 
-    .section1Text h1 {
-        font-weight: 700;
-        margin-bottom: 2rem;
-    }
+.section1Text h1 {
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
 
-    .section1Text h3 {
-        font-style: italic;
-        margin-bottom: 2rem;
-    }
+.section1Text h3 {
+    font-style: italic;
+    margin-bottom: 2rem;
+}
 
-    .section1Text p {
-        font-size: 1.5rem;
-        margin-bottom: 2rem;
-    }
+.section1Text p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
 
-    .solutions {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 5rem;
-    }
+.solutions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5rem;
+}
 
-    .solutions {
-        color: #0C4B77;
-        text-align: center;
-    }
+.solutions {
+    color: #0C4B77;
+    text-align: center;
+}
 
-    .solutions h1 {
-        font-weight: 600;
-    }
+.solutions h1 {
+    font-weight: 600;
+}
 
-    .solutions p {
-        padding: 0rem 3rem;
-        font-size: 1.2rem;
-    }
+.solutions p {
+    padding: 0rem 3rem;
+    font-size: 1.5rem;
+}
 
-    .solutionsCards {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(100px, 1fr));
-        gap: 2rem;
-    }
+.solutionsCards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    gap: 2rem;
+}
 
-    .solutionsCards a {
-        text-decoration: none;}
+.solutionsCards a {
+    text-decoration: none;
+}
 
-    .nSIcons {
-        background-color: #fff;
-        color: #0C4B77;
-        width: 15rem;
-        height: 20rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        border-radius: 2rem;
-        border: 2px solid #0C4B77;
-    }
+.nSIcons {
+    background-color: #fff;
+    color: #0C4B77;
+    width: 15rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: 2px solid #0C4B77;
+}
 
-    .nSIcons:hover{
-        color: #fff;
-        background-color: #0C4B77;
-        cursor: pointer;
-    }
+.nSIcons:hover {
+    color: #fff;
+    background-color: #0C4B77;
+    cursor: pointer;
+}
 
-    .nSIcons svg {
-        margin-top: 1rem;
-    }
+.nSIcons svg {
+    margin-top: 1rem;
+}
 
-    .nSIcons h2 {
-        margin-top: 1rem;
-    }
+.nSIcons h4 {
+    margin-top: 1rem;
+}
 
-    .nSIcons p {
-        padding: 0;
-        font-size: 1rem;
-        margin-top: 1rem;
-    }
+.nSIcons p {
+    padding: 0;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+.whyModavoDescr {
+    color: #0C4B77;
+    text-align: center;
+    padding: 2rem;
+}
+
+.whyModavoDescr h1 {
+    font-weight: 600;
+}
+
+.whyModavoDescr p {
+    font-size: 1.2rem;
+}
+
+.motives {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.motivesSection {
+    padding: 2rem
+}
+
+.motivesText {
+    color: #0C4B77;
+    margin-left: 5rem;
+}
+
+.motivesText p {
+    font-size: 1.2rem;
+}
+
+.howTo {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.howTo h1 {
+    color: #0C4B77;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+
+.howToCards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.howToCardsInternConfig {
+    color: #0C4B77;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 1rem;
+    width: 18rem;
+    height: 25rem;
+    border: 1px solid #0C4B77;
+    row-gap: 0 !important;
+    border-radius: 2rem;
+}
+
+.howToCardsInternConfig:hover {
+    color: #fff;
+    background-color: #0C4B77;
+    cursor: pointer;
+}
+
+.howToCardsInternConfig h3 {
+    margin-top: 1rem;
+}
+
+.howToCardsInternConfig svg {
+    min-width: 50px;
+}
+
+@media(max-width:769px) {
+
+    
 }
