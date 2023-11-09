@@ -1,0 +1,107 @@
+.tfaCover {
+    background-image: url("../img/registerImgForm1.jpg");
+    width: 100%;
+    height: 70vh;
+    background-size: cover;
+    display: flex;
+    align-items: end;
+    padding: 3rem 3rem;
+    color: #fff;
+}
+
+.stepsSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stepsSection h1 {
+    color: #0C4B77;
+    margin: 3rem 0;
+}
+
+.stepsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    justify-content: center;
+    align-items: center;
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: justify;
+}
+
+.steps p {
+    margin-top: 1.5rem;
+}
+
+.benefitsSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: #0C4B77;
+}
+
+.benefitsSection h1 {
+    margin-bottom: 3rem;
+    color: #0C4B77;
+}
+
+.benefits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 3rem;
+}
+
+.list li {
+    list-style-image: url("../img/check.svg");
+}
+
+.utilitiesSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+    color: #0C4B77;
+}
+.utilitiesSection h1 { 
+    margin-bottom: 3rem;
+}
+
+.utilitiesDisplay {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    justify-content: center;
+    align-items: center;
+}
+
+.utilitiesAlign {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.utilities{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5rem;
+}
+
+.utilities ul {
+    margin:1rem 0 ;
+}
+
+.utilities h5{
+    margin: 1rem 0;
+}

@@ -3,9 +3,9 @@ import style from '../../assets/css/login.module.css';
 import { Form, FormGroup, FormLabel, FormControl, Image } from 'react-bootstrap';
 import imgLogo from '../../assets/img/Logo - Horizontal - Sem frase.png';
 import { Link } from 'react-router-dom';
-import ButtonGeral from '../../components/ButtonGeral';
+import ButtonGeral from '../../components/buttonGeral';
 import api from '../../Services/api';
-import { useToastAlert } from '../../components/Alerts';
+import { useToastAlert } from '../../components/alerts';
 
 const LogIn = () => {
     const [login, setLogin] = useState("");
@@ -45,7 +45,7 @@ const LogIn = () => {
                 <div className={style.imgFormLogin}>
                     <div className={style.formLogin}>
                         <Link to={'/'}>
-                            <Image src={imgLogo} width={400} />
+                            <img src={imgLogo} className={style.imgSize} />
                         </Link>
                         <Form onSubmit={loginForm}>
                             <FormGroup className={style.login}>

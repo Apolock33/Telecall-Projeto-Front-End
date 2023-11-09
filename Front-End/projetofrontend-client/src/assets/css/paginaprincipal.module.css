@@ -4,7 +4,7 @@
 
 .coverImg {
     background-image: url('../img//registerImgForm1.jpg');
-    height: 60vh;
+    height: 100vh;
     width: 100%;
     background-size: cover;
     opacity: 20%;
@@ -17,8 +17,8 @@
     color: #fff;
     font-size: 1.5rem;
     position: absolute;
-    top: 25%;
-    left: 20%;
+    top: 40%;
+    left: 30%;
     text-align: center;
     opacity: 100%;
     z-index: 999;
@@ -217,6 +217,9 @@
 }
 
 @media(max-width:769px) {
-
+.textCover{
+    top: 40%;
+    left:20%;
+}
     
 }

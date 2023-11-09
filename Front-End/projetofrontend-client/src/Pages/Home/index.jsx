@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Menu from '../../components/Menu';
-import Sidebar from '../../components/Sidebar';
+import Menu from '../../components/menu';
+import Sidebar from '../../components/sidebar';
 import { verifyLogin } from '../../Services/cookiesServices';
 
 const Home = () => {
@@ -16,8 +16,8 @@ const Home = () => {
             <Sidebar
                 show={openSideBar}
                 close={() => setOpenSideBar(!openSideBar)}>
-                <h1>Ola mundo</h1>
             </Sidebar>
+            <h1>home</h1>
         </React.Fragment>
     );
 }

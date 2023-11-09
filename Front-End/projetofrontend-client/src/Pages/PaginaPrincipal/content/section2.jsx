@@ -12,7 +12,7 @@ const Section2 = () => {
             description: 'Fortaleça a estratégia de segurança de seu negócio.',
             icon: FiLock,
             size: 80,
-            router: '/'
+            router: '/2fa'
         },
         {
             id: 2,
@@ -20,7 +20,7 @@ const Section2 = () => {
             description: 'Proteja identidades profissionais.',
             icon: FiSmartphone,
             size: 80,
-            router: '/'
+            router: '/numero-mascara'
         },
         {
             id: 3,
@@ -28,7 +28,7 @@ const Section2 = () => {
             description: 'Conecte-se com seus clientes de forma fácil e rápida.',
             icon: FiMessageCircle,
             size: 80,
-            router: '/'
+            router: '/sms-programavel'
         },
         {
             id: 4,
@@ -36,7 +36,7 @@ const Section2 = () => {
             description: 'Ofereça uma melhor experiência de vendas e promoções para seus clientes.',
             icon: FiCheckCircle,
             size: 80,
-            router: '/'
+            router: '/google-verified-calls'
         }
     ]
 

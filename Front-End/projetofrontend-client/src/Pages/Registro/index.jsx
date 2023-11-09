@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Form, FormGroup, FormLabel, FormControl, Image, FormSelect } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import style from '../../assets/css/registro.module.css'
-import ButtonGeral from '../../components/ButtonGeral';
+import ButtonGeral from '../../components/buttonGeral';
 import api from '../../Services/api';
 import imgLogo from '../../assets/img/Logo - Horizontal - Sem frase.png';
 import InputMask from 'react-input-mask';
@@ -21,6 +21,8 @@ const Registro = () => {
         login: '',
         senha: ''
     });
+
+    const [senhaConfirm, setSenhaConfirm] = useState(false);
 
     localStorage.setItem('login', '');
     localStorage.setItem('senha', '');
@@ -55,6 +57,17 @@ const Registro = () => {
         }
     }
 
+    function verifySenhaConfirm(){
+        let senhaConfirmValue = document.getElementById('senhaConfirm').value;
+        let senhaValue = document.getElementById('senha').value;
+
+        if(senhaConfirmValue == senhaValue) {
+            setSenhaConfirm(true);
+        }else{
+            setSenhaConfirm(false);
+        }
+    }
+
     return (
         <React.Fragment>
             <section id='registro' className={style.registerFormContainer}>
@@ -71,6 +84,7 @@ const Registro = () => {
                                 </FormLabel>
                                 <FormControl
                                     size={'md'}
+                                    maxLength={60}
                                     required
                                     name={'nome'}
                                     id={'nome'}
@@ -214,7 +228,11 @@ const Registro = () => {
                                     size={'md'}
                                     required
                                     id={'senhaConfirm'}
-                                    type='password' />
+                                    type='password'
+                                    isValid={senhaConfirm}
+                                    isInvalid={!senhaConfirm}
+                                    onChange={verifySenhaConfirm}
+                                    />
                                 <Form.Control.Feedback type="invalid">
                                     A senha deve coincidir com a confirmação
                                 </Form.Control.Feedback>
