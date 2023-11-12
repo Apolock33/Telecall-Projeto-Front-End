@@ -5,6 +5,8 @@ import Usuario from '../Pages/Usuario';
 import LogIn from '../Pages/LogIn';
 import Registro from '../Pages/Registro';
 import PaginaPrincipal from '../Pages/PaginaPrincipal';
+import SmsProgramavel from '../Pages/PaginaPrincipal/sidePages/smsProgramavel/smsProgramavel';
+import TwoFactorAuthentication from '../pages/PaginaPrincipal/sidePages/2fa/twoFactorAuth';
 
 const Router = createBrowserRouter([
     {
@@ -20,12 +22,20 @@ const Router = createBrowserRouter([
         element: <Registro />
     },
     {
+        path: '/2fa',
+        element: <TwoFactorAuthentication />
+    },
+    {
+        path: '/sms-programavel',
+        element: <SmsProgramavel />
+    },
+    {
         path: '/home',
         element: <Home />
     },
     {
         path: '/usuarios',
-        element: <Usuario/>
+        element: <Usuario />
     }
 ]);
 

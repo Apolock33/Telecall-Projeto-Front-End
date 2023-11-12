@@ -212,7 +212,6 @@ const Registro = () => {
                                 <Form.Control.Feedback type="invalid">
                                     A senha deve conter:
                                     <ul>
-                                        <li>Ao menos 8 Caracteres</li>
                                         <li>Ao menos 8 Caracteres Alfabéticos</li>
                                         <li>Numeros</li>
                                         <li>Letras Maíusculas</li>
