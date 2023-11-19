@@ -7,6 +7,8 @@ import Registro from '../Pages/Registro';
 import PaginaPrincipal from '../Pages/PaginaPrincipal';
 import SmsProgramavel from '../Pages/PaginaPrincipal/sidePages/smsProgramavel/smsProgramavel';
 import TwoFactorAuthentication from '../pages/PaginaPrincipal/sidePages/2fa/twoFactorAuth';
+import NumeroMascara from '../pages/PaginaPrincipal/sidePages/numeroMascara/numeroMascara';
+import GoogleVerifiedCalls from '../pages/PaginaPrincipal/sidePages/googleVerifiedCalls/googleVerifiedCalls';
 
 const Router = createBrowserRouter([
     {
@@ -28,6 +30,14 @@ const Router = createBrowserRouter([
     {
         path: '/sms-programavel',
         element: <SmsProgramavel />
+    },
+    {
+        path: '/numero-mascara',
+        element: <NumeroMascara />
+    },
+    {
+        path: '/google-verified-calls',
+        element: <GoogleVerifiedCalls />
     },
     {
         path: '/home',

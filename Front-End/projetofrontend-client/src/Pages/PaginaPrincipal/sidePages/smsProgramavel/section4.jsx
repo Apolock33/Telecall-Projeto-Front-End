@@ -39,7 +39,7 @@ const Section4 = () => {
     ]
 
     return (
-        <React.Fragment>
+        <React.Fragment >
             <div className={style.smsSection4}>
                 <h1>Benefícios</h1>
                 <div className={style.section4GridBenefits}>

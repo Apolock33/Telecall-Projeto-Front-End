@@ -1,0 +1,49 @@
+.numeroMascaraCover {
+    background-image: url("../img/numeroMascara.jpg");
+    width: 100%;
+    height: 70vh;
+    background-size: cover;
+    display: flex;
+    align-items: end;
+    padding: 3rem 3rem;
+    color: #fff;
+}
+
+.section1 {
+    text-align: center;
+    padding: 3rem;
+    color: #0C4B77;
+}
+
+.section1DisplayContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section1Content{
+    padding: 2rem;
+    font-size: 1.5rem;
+}
+
+.section2{
+    text-align: center;
+    color: #0C4B77;
+}
+
+.section2Content{
+    padding: 1rem 5rem;
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.section2Content img, .section2Content h4,
+.section2Content p{
+    margin-top: 1rem;
+}

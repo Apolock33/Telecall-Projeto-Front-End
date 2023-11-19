@@ -1,0 +1,55 @@
+.gfcCover {
+    background-image: url("../img/smscover.jpg");
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 3rem 3rem;
+    color: #fff;
+}
+
+.section1 {
+    text-align: center;
+    padding: 3rem;
+    color: #0C4B77;
+}
+
+.section2 {
+    text-align: center;
+    color: #0C4B77;
+}
+
+.section2GridContent {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+}
+
+.content p {
+    margin-top: 1.5rem;
+    padding: 0 5rem;
+}
+
+.section3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #0C4B77;
+}
+
+.section3DisplayContent {
+    padding: 0 10rem;
+}
+
+.section3DisplayContent ul li {
+    margin: 3rem 0;
+}
+
+@media (max-width: 769px) {
+    .gfcCover {
+
+        height: 70vh;
+    }
+}
