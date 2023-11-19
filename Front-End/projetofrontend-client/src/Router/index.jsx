@@ -4,11 +4,11 @@ import Home from '../Pages/Home';
 import Usuario from '../Pages/Usuario';
 import LogIn from '../Pages/LogIn';
 import Registro from '../Pages/Registro';
-import PaginaPrincipal from '../Pages/PaginaPrincipal';
-import SmsProgramavel from '../Pages/PaginaPrincipal/sidePages/smsProgramavel/smsProgramavel';
-import TwoFactorAuthentication from '../pages/PaginaPrincipal/sidePages/2fa/twoFactorAuth';
-import NumeroMascara from '../pages/PaginaPrincipal/sidePages/numeroMascara/numeroMascara';
-import GoogleVerifiedCalls from '../pages/PaginaPrincipal/sidePages/googleVerifiedCalls/googleVerifiedCalls';
+import PaginaPrincipal from '../Pages/paginaPrincipal';
+import SmsProgramavel from '../Pages/paginaPrincipal/sidePages/smsProgramavel/smsProgramavel';
+import TwoFactorAuthentication from '../pages/paginaPrincipal/sidePages/2fa/twoFactorAuth';
+import NumeroMascara from '../pages/paginaPrincipal/sidePages/numeroMascara/numeroMascara';
+import GoogleVerifiedCalls from '../pages/paginaPrincipal/sidePages/googleVerifiedCalls/googleVerifiedCalls';
 
 const Router = createBrowserRouter([
     {
