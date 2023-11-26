@@ -15,13 +15,6 @@ const Menu = ({ onClick, hasSideBar }) => {
             <Navbar className={"navbar navbar-expand-lg bg-light mx-4 rounded-4"} style={{ boxShadow: "rgba(0, 0, 0, 0.35) 0px 0px 10px", top: '1.5rem' }} fixed="top">
                 <Container fluid >
                     <Nav.Link className={style.logo}>
-                        {(hasSideBar) ?
-                            <IconButton size='medium' onClick={onClick}>
-                                <FiMenu size={30} color='#0C4B77' />
-                            </IconButton>
-                            :
-                            null
-                        }
                         <Navbar.Brand onClick={() => window.location.href = '/'} className={style.icons}>
                             <Image src={imgLogo} width={150} />
                         </Navbar.Brand>

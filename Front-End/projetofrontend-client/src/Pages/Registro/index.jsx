@@ -7,6 +7,7 @@ import api from '../../Services/api';
 import imgLogo from '../../assets/img/Logo - Horizontal - Sem frase.png';
 import InputMask from 'react-input-mask';
 import { FiArrowRight } from 'react-icons/fi';
+import { useToastAlert } from '../../components/alerts';
 
 const Registro = () => {
     const [validated, setValidated] = useState(false);
@@ -35,6 +36,14 @@ const Registro = () => {
         });
     }
 
+    var useAlertConfig = {
+        texto: 'Cadastro realizado com sucesso',
+        icon: 'success',
+        hasConfirmationButton: false,
+        timer:3000,
+        hasProgerssBar: true
+    }
+
     const handleSubmit = (e) => {
         const form = e.currentTarget;
         e.preventDefault();
@@ -49,7 +58,10 @@ const Registro = () => {
                         localStorage.setItem('login', formRegistro.login);
                         localStorage.setItem('senha', formRegistro.senha);
                         localStorage.setItem('islogged', true);
-                        window.location.href = '/home'
+                        useToastAlert(useAlertConfig);
+                        setTimeout(() => {
+                            window.location.href = '/home'
+                        }, 3000)
                     }).catch((error) => {
                         console.log(error);
                     });
@@ -57,13 +69,13 @@ const Registro = () => {
         }
     }
 
-    function verifySenhaConfirm(){
+    function verifySenhaConfirm() {
         let senhaConfirmValue = document.getElementById('senhaConfirm').value;
         let senhaValue = document.getElementById('senha').value;
 
-        if(senhaConfirmValue == senhaValue) {
+        if (senhaConfirmValue == senhaValue) {
             setSenhaConfirm(true);
-        }else{
+        } else {
             setSenhaConfirm(false);
         }
     }
@@ -231,7 +243,7 @@ const Registro = () => {
                                     isValid={senhaConfirm}
                                     isInvalid={!senhaConfirm}
                                     onChange={verifySenhaConfirm}
-                                    />
+                                />
                                 <Form.Control.Feedback type="invalid">
                                     A senha deve coincidir com a confirmação
                                 </Form.Control.Feedback>
