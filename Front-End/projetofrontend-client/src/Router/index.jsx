@@ -1,11 +1,11 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import Home from '../Pages/Home';
-import Usuario from '../Pages/Usuario';
-import LogIn from '../Pages/LogIn';
-import Registro from '../Pages/Registro';
-import PaginaPrincipal from '../Pages/paginaPrincipal';
-import SmsProgramavel from '../Pages/paginaPrincipal/sidePages/smsProgramavel/smsProgramavel';
+import Home from '../pages/home';
+import Usuario from '../pages/usuario';
+import LogIn from '../pages/logIn';
+import Registro from '../pages/registro';
+import PaginaPrincipal from '../pages/paginaPrincipal';
+import SmsProgramavel from '../pages/paginaPrincipal/sidePages/smsProgramavel/smsProgramavel';
 import TwoFactorAuthentication from '../pages/paginaPrincipal/sidePages/2fa/twoFactorAuth';
 import NumeroMascara from '../pages/paginaPrincipal/sidePages/numeroMascara/numeroMascara';
 import GoogleVerifiedCalls from '../pages/paginaPrincipal/sidePages/googleVerifiedCalls/googleVerifiedCalls';
