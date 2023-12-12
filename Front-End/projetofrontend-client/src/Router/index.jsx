@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Home from '../pages/home';
-import Usuario from '../pages/usuario';
+import Usuario from '../Pages/usuario';
 import LogIn from '../pages/logIn';
 import Registro from '../pages/registro';
 import PaginaPrincipal from '../pages/paginaPrincipal';
