@@ -40,16 +40,22 @@ const Registro = () => {
         texto: 'Cadastro realizado com sucesso',
         icon: 'success',
         hasConfirmationButton: false,
-        timer:3000,
+        timer: 3000,
         hasProgerssBar: true
     }
 
     const handleSubmit = (e) => {
+        let senhaConfirmValue = document.getElementById('senhaConfirm').value;
+        let senhaValue = document.getElementById('senha').value;
+        
         const form = e.currentTarget;
+        
         e.preventDefault();
-        if (form.checkValidity() === false) {
+
+        if (form.checkValidity() === false || senhaConfirmValue != senhaValue) {
             e.preventDefault();
             e.stopPropagation();
+            
         } else {
             setValidated(true);
             if (validated) {

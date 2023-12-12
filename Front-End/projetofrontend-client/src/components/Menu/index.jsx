@@ -3,12 +3,10 @@ import { Nav, Image, Container, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import imgLogo from '../../assets/img/Logo - Horizontal - Sem frase.png';
 import { IconButton } from '@mui/material';
-import { FiMenu } from 'react-icons/fi';
-import { MdWbSunny } from 'react-icons/md';
 import { HiUserCircle } from 'react-icons/hi';
 import style from '../../assets/css/navBar.module.css';
 
-const Menu = ({ onClick, hasSideBar }) => {
+const Menu = () => {
 
     return (
         <React.Fragment>
@@ -20,11 +18,6 @@ const Menu = ({ onClick, hasSideBar }) => {
                         </Navbar.Brand>
                     </Nav.Link>
                     <Nav>
-                        <NavLink>
-                            <IconButton size='medium'>
-                                <MdWbSunny size={30} color='#0C4B77' />
-                            </IconButton>
-                        </NavLink>
                         <NavLink to={'/login'}>
                             <IconButton size='medium'>
                                 <HiUserCircle size={30} color='#0C4B77' />
